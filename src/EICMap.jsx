@@ -1090,7 +1090,7 @@ const CSS = `
 
 const NS = { vectorEffect: 'non-scaling-stroke' };
 
-const SeaAndLand = memo(function SeaAndLand() {
+const SeaAndLand = memo(function SeaAndLand({ u }) {
   const G = geo();
   return (
     <g>
@@ -1098,33 +1098,33 @@ const SeaAndLand = memo(function SeaAndLand() {
       {[18, 11, 6].map((w, i) => (
         <path key={w} d={G.coastD} fill="none" stroke="#7d98a8" strokeOpacity={[0.06, 0.09, 0.14][i]} strokeWidth={w} strokeLinejoin="round" />
       ))}
-      <path d={G.coastD} fill="none" stroke="#7d98a8" strokeOpacity={0.35} strokeWidth={0.5} transform="translate(0.8 1.2)" {...NS} />
+      <path d={G.coastD} fill="none" stroke="#7d98a8" strokeOpacity={0.35} strokeWidth={0.5 * u} transform="translate(0.8 1.2)" />
       <path d={G.landD} fill={LAND} />
     </g>
   );
 });
 
-const Relief = memo(function Relief() {
+const Relief = memo(function Relief({ u }) {
   const G = geo();
   return (
     <g pointerEvents="none">
-      <path d={G.mountains} fill="none" stroke="#5e4c39" strokeOpacity={0.42} strokeWidth={0.75} strokeLinecap="round" strokeLinejoin="round" {...NS} />
+      <path d={G.mountains} fill="none" stroke="#5e4c39" strokeOpacity={0.42} strokeWidth={0.75 * u} strokeLinecap="round" strokeLinejoin="round" />
       {G.rivers.map((r) => (
-        <path key={r.name} d={r.d} fill="none" stroke="#6f8ea0" strokeOpacity={0.75} strokeWidth={r.name === 'Ganges' || r.name === 'Indus' ? 1.3 : 0.85} strokeLinecap="round" {...NS} />
+        <path key={r.name} d={r.d} fill="none" stroke="#6f8ea0" strokeOpacity={0.75} strokeWidth={(r.name === 'Ganges' || r.name === 'Indus' ? 1.3 : 0.85) * u} strokeLinecap="round" />
       ))}
     </g>
   );
 });
 
-const Borders = memo(function Borders() {
+const Borders = memo(function Borders({ u }) {
   const G = geo();
   const regionLines = useMemo(() => Object.values(G.regions).map((r, i) => roughD(r.rings, 0.45, 300 + i * 13)).join(''), [G]);
   return (
     <g pointerEvents="none">
-      <path d={regionLines} fill="none" stroke="#4d3d2e" strokeOpacity={0.3} strokeWidth={0.7} strokeDasharray="5 1.6 1 1.6" strokeLinejoin="round" {...NS} />
-      <path d={G.bordersD} fill="none" stroke="#6b5a47" strokeOpacity={0.32} strokeWidth={0.7} strokeDasharray="2 2.5" {...NS} />
-      <path d={G.coastB} fill="none" stroke="#3b3027" strokeOpacity={0.3} strokeWidth={0.6} strokeLinejoin="round" {...NS} />
-      <path d={G.coastA} fill="none" stroke="#33291f" strokeOpacity={0.82} strokeWidth={1.05} strokeLinejoin="round" {...NS} />
+      <path d={regionLines} fill="none" stroke="#4d3d2e" strokeOpacity={0.3} strokeWidth={0.7 * u} strokeDasharray={[5, 1.6, 1, 1.6].map((v) => v * u).join(' ')} strokeLinejoin="round" />
+      <path d={G.bordersD} fill="none" stroke="#6b5a47" strokeOpacity={0.32} strokeWidth={0.7 * u} strokeDasharray={`${2 * u} ${2.5 * u}`} />
+      <path d={G.coastB} fill="none" stroke="#3b3027" strokeOpacity={0.3} strokeWidth={0.6 * u} strokeLinejoin="round" />
+      <path d={G.coastA} fill="none" stroke="#33291f" strokeOpacity={0.82} strokeWidth={1.05 * u} strokeLinejoin="round" />
     </g>
   );
 });
@@ -1160,7 +1160,7 @@ const Labels = memo(function Labels({ zk }) {
 });
 
 /* Territory fills; memoised on a string key of the current control state. */
-const Territories = memo(function Territories({ stateKey, visKey }) {
+const Territories = memo(function Territories({ stateKey, visKey, u }) {
   const G = geo();
   const states = JSON.parse(stateKey);
   const vis = JSON.parse(visKey);
@@ -1176,7 +1176,7 @@ const Territories = memo(function Territories({ stateKey, visKey }) {
         return (
           <g key={id}>
             <path d={r.d} data-region={id} style={{ fill, stroke: fill, transition: 'fill 1.3s ease, stroke 1.3s ease', cursor: 'pointer' }}
-              strokeWidth={1.6} strokeLinejoin="round" {...NS} />
+              strokeWidth={1.6 * u} strokeLinejoin="round" />
             {st.over && vis.includes(st.over) && (
               <path d={r.d} fill={`url(#hatch-${st.over})`} pointerEvents="none" className="atl-fade" />
             )}
@@ -1209,7 +1209,7 @@ function EventMarker({ ev, z, onClick }) {
   const banners = (ev.forces || []).map((x) => x.f).filter((f, i, a) => a.indexOf(f) === i).slice(0, 2);
   const s = 1 / z;
   return (
-    <g transform={`translate(${ev.xy[0]} ${ev.xy[1]}) scale(${s})`} style={{ cursor: 'pointer' }} onClick={onClick}>
+    <g transform={`translate(${ev.xy[0]} ${ev.xy[1]}) scale(${s})`} style={{ cursor: 'pointer' }} pointerEvents="auto" onClick={onClick}>
       <circle r={16} fill="none" stroke={ink} strokeWidth={1.5} className="atl-pulse" />
       {ev.ty === 'siege' && <circle r={24} fill="none" stroke={ink} strokeWidth={1.4} strokeDasharray="3 4" className="atl-spin" />}
       {ev.ty === 'battle' && [0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
@@ -1615,9 +1615,13 @@ export default function EICMap() {
   const [showTrade, setShowTrade] = useState(true);
   const svgRef = useRef(null);
   const mapBoxRef = useRef(null);
+  const stageRef = useRef(null);
   const trackRef = useRef(null);
   const bump = useCallback(() => setFrame((f) => (f + 1) % 1e9), []);
   const [box, setBox] = useState({ w: 1000, h: 800 });
+  // The static map is moved by the GPU while the camera moves, and redrawn crisply once it settles.
+  const [moving, setMoving] = useState(false);
+  const [settledZ, setSettledZ] = useState(1);
   useEffect(() => {
     const el = mapBoxRef.current; if (!el) return;
     const ro = new ResizeObserver(([e]) => setBox({ w: e.contentRect.width || 1, h: e.contentRect.height || 1 }));
@@ -1690,6 +1694,13 @@ export default function EICMap() {
         }
       }
       if (now - s.activatedAt < 4200 || (s.events[s.activeIdx] && s.events[s.activeIdx].pays.length)) changed = true;
+      const pc = s.prevCam || (s.prevCam = { ...s.cam });
+      if (Math.abs(pc.x - s.cam.x) + Math.abs(pc.y - s.cam.y) > 0.01 || Math.abs(pc.z - s.cam.z) > 0.0005) {
+        s.lastMove = now; s.prevCam = { ...s.cam };
+        if (!s.isMoving) { s.isMoving = true; setMoving(true); }
+      } else if (s.isMoving && now - s.lastMove > 220) {
+        s.isMoving = false; setMoving(false); setSettledZ(s.cam.z);
+      }
       if (changed) bump();
       raf = requestAnimationFrame(tick);
     };
@@ -1727,6 +1738,10 @@ export default function EICMap() {
   const viewBox = `${(cam.x - vbW / 2).toFixed(2)} ${(cam.y - vbH / 2).toFixed(2)} ${vbW.toFixed(2)} ${vbH.toFixed(2)}`;
   // k = screen pixels per map unit; used to keep markers and labels a constant on-screen size
   const k = Math.min(box.w / vbW, box.h / vbH);
+  const k0 = Math.min(box.w / G.W, box.h / G.H); // screen px per map unit at zoom 1
+  const PADV = 60;
+  const staticTf = `translate3d(${(box.w / 2 - (cam.x + PADV) * k).toFixed(2)}px, ${(box.h / 2 - (cam.y + PADV) * k).toFixed(2)}px, 0) scale(${cam.z.toFixed(5)})`;
+  const u = +(1 / (k0 * settledZ)).toFixed(4); // map units per screen pixel at the settled zoom
 
   const goPrev = () => {
     const i = info.phase === 'dwell' && info.f > 0.2 ? info.idx : info.idx - 1;
@@ -1761,7 +1776,7 @@ export default function EICMap() {
     setFollowBoth(false); bump();
   }, [bump, setFollowBoth, clampCam]);
   useEffect(() => {
-    const el = svgRef.current; if (!el) return;
+    const el = stageRef.current; if (!el) return;
     const onWheel = (e) => { e.preventDefault(); zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0016)); };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
@@ -1775,7 +1790,7 @@ export default function EICMap() {
     const s = S.current;
     if (s.drag) {
       const dx = e.clientX - s.drag.x, dy = e.clientY - s.drag.y;
-      if (!s.moved && Math.hypot(dx, dy) > 4) { s.moved = true; svgRef.current.setPointerCapture?.(s.drag.id); setFollowBoth(false); setHover(null); }
+      if (!s.moved && Math.hypot(dx, dy) > 4) { s.moved = true; stageRef.current.setPointerCapture?.(s.drag.id); setFollowBoth(false); setHover(null); }
       if (s.moved) {
         const sc = svgRef.current.getScreenCTM().a;
         s.cam = clampCam({ x: s.drag.cx - dx / sc, y: s.drag.cy - dy / sc, z: s.cam.z }); bump();
@@ -1853,11 +1868,13 @@ export default function EICMap() {
         {/* MAP */}
         <div ref={mapBoxRef} className="paper-bg relative min-w-0 flex-1 overflow-hidden" onPointerLeave={() => setHover(null)}>
           <div className="mottle pointer-events-none absolute inset-0" />
-          <svg ref={svgRef} viewBox={viewBox} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full touch-none select-none"
-            onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} role="img" aria-label={`Map of India in ${Math.floor(year)}`}>
+          <div ref={stageRef} className="absolute inset-0 touch-none select-none" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp}>
+          {/* Static layer: land, territories, relief, borders and mist. Moved with a CSS transform so panning never repaints it. */}
+          <svg className="absolute left-0 top-0" width={(G.W + 2 * PADV) * k0} height={(G.H + 2 * PADV) * k0} viewBox={`${-PADV} ${-PADV} ${G.W + 2 * PADV} ${G.H + 2 * PADV}`}
+            style={{ transform: staticTf, transformOrigin: '0 0', willChange: moving ? 'transform' : 'auto' }} aria-hidden="true">
             <defs>
               {Object.entries(FACTIONS).map(([fk, c]) => (
-                <pattern key={fk} id={`hatch-${fk}`} width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform={`rotate(40) scale(${(1 / k).toFixed(4)})`}>
+                <pattern key={fk} id={`hatch-${fk}`} width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform={`rotate(40) scale(${u})`}>
                   <line x1="0" y1="0" x2="0" y2="5.5" stroke={c.ink} strokeWidth="1.15" strokeOpacity=".5" />
                 </pattern>
               ))}
@@ -1867,11 +1884,24 @@ export default function EICMap() {
                 </linearGradient>
               ))}
             </defs>
-            <rect x={-2000} y={-2000} width={G.W + 4000} height={G.H + 4000} fill="transparent" />
-            <SeaAndLand />
-            <Territories stateKey={stateKey} visKey={visKey} />
-            <Relief />
-            <Borders />
+            <SeaAndLand u={u} />
+            <Territories stateKey={stateKey} visKey={visKey} u={u} />
+            <Relief u={u} />
+            <Borders u={u} />
+            {/* mist: the map dissolves into the paper instead of ending at a hard edge */}
+            <g pointerEvents="none">
+              <path fillRule="evenodd" fill={PAPER} d={`M-3000,-3000H${G.W + 3000}V${G.H + 3000}H-3000Z M-38,-38V${G.H + 38}H${G.W + 38}V-38Z`} />
+              <rect x={-38} y={-38} width={120} height={G.H + 76} fill="url(#mist-l)" />
+              <rect x={G.W - 82} y={-38} width={120} height={G.H + 76} fill="url(#mist-r)" />
+              <rect x={-38} y={-38} width={G.W + 76} height={100} fill="url(#mist-t)" />
+              <rect x={-38} y={G.H - 34} width={G.W + 76} height={72} fill="url(#mist-b)" />
+            </g>
+
+          </svg>
+
+          {/* Live overlay: labels, markers, movements. Only its interactive pieces take pointer events. */}
+          <svg ref={svgRef} viewBox={viewBox} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full" style={{ pointerEvents: 'none' }}
+            role="img" aria-label={`Map of India in ${Math.floor(year)}`}>
             <Labels zk={k} />
 
             {/* changed-hands highlight */}
@@ -1894,7 +1924,7 @@ export default function EICMap() {
               const f = e.f.find((x) => vis.includes(x)) || e.f[0];
               return (
                 <circle key={e.id} cx={e.xy[0]} cy={e.xy[1]} r={(e.pv ? 3.6 : 2.6) / k} fill={FACTIONS[f].color} stroke={FACTIONS[f].ink} strokeWidth={0.8}
-                  opacity={0.75} style={{ cursor: 'pointer' }} {...NS} onClick={(ev) => { ev.stopPropagation(); seekEvent(i); }}>
+                  opacity={0.75} style={{ cursor: 'pointer' }} pointerEvents="auto" {...NS} onClick={(ev) => { ev.stopPropagation(); seekEvent(i); }}>
                   <title>{`${fmtDate(e.d)} · ${e.title}`}</title>
                 </circle>
               );
@@ -1906,7 +1936,7 @@ export default function EICMap() {
               const s = 6 / Math.pow(k, 0.6);
               return (
                 <path key={en.id} d={BLOBS[i % BLOBS.length]} transform={`translate(${en.xy[0]} ${en.xy[1]}) scale(${s})`}
-                  style={{ fill: shown ? c.color : MUTED, transition: 'fill 1s' }} stroke={shown ? c.ink : '#a8977c'} strokeWidth={1} {...NS}>
+                  style={{ fill: shown ? c.color : MUTED, transition: 'fill 1s' }} stroke={shown ? c.ink : '#a8977c'} strokeWidth={1} pointerEvents="auto" {...NS}>
                   <title>{`${en.name} — ${FACTIONS[f].name}`}</title>
                 </path>
               );
@@ -1923,15 +1953,6 @@ export default function EICMap() {
               );
             })}
 
-            {/* mist: the map dissolves into the paper instead of ending at a hard edge */}
-            <g pointerEvents="none">
-              <path fillRule="evenodd" fill={PAPER} d={`M-3000,-3000H${G.W + 3000}V${G.H + 3000}H-3000Z M-38,-38V${G.H + 38}H${G.W + 38}V-38Z`} />
-              <rect x={-38} y={-38} width={120} height={G.H + 76} fill="url(#mist-l)" />
-              <rect x={G.W - 82} y={-38} width={120} height={G.H + 76} fill="url(#mist-r)" />
-              <rect x={-38} y={-38} width={G.W + 76} height={100} fill="url(#mist-t)" />
-              <rect x={-38} y={G.H - 34} width={G.W + 76} height={72} fill="url(#mist-b)" />
-            </g>
-
             {/* cities */}
             {Object.values(G.places).map((pl) => {
               const isActive = active && active.p === pl.id;
@@ -1939,7 +1960,7 @@ export default function EICMap() {
               return (
                 <g key={pl.id} transform={`translate(${pl.xy[0]} ${pl.xy[1]}) scale(${1 / k})`}>
                   <circle r={pl.major ? 2.6 : 2} fill="#2f251c" />
-                  <circle r={7} fill="transparent" data-place={pl.id} style={{ cursor: 'pointer' }} />
+                  <circle r={7} fill="transparent" data-place={pl.id} style={{ cursor: 'pointer' }} pointerEvents="auto" />
                   {!isActive && (pl.major === 2 || k >= 0.8) && (
                     <text x={pl.left ? -5 : 5} y={3.4} textAnchor={pl.left ? 'end' : 'start'} fontSize={pl.major ? 10.5 : 9.5} className="display" fontWeight={600}
                       fill="#2f251c" letterSpacing="0.06em" style={{ paintOrder: 'stroke', stroke: 'rgba(247,243,234,.85)', strokeWidth: 3, strokeLinejoin: 'round' }} pointerEvents="none">
@@ -1957,6 +1978,7 @@ export default function EICMap() {
             {active && active.pays.map((q, i) => <PaymentFlow key={active.id + 'p' + i} pay={q} idx={i} z={k} secs={(performance.now() - st.activatedAt) / 1000} />)}
             {active && <EventMarker ev={active} z={k} onClick={() => { setTab('event'); setSheetOpen(true); }} />}
           </svg>
+          </div>
           <div className="mist pointer-events-none absolute inset-0" />
           <div className="grain pointer-events-none absolute inset-0" />
 
