@@ -1610,8 +1610,8 @@ export default function EICMap() {
   const [closedCallout, setClosedCallout] = useState(null);
   const [follow, setFollow] = useState(true);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [legendOpen, setLegendOpen] = useState(() => typeof window === 'undefined' || window.innerWidth >= 1280);
-  const [londonOpen, setLondonOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1440);
+  const [legendOpen, setLegendOpen] = useState(false); // folded at start; opens on click
+  const [londonOpen, setLondonOpen] = useState(false);
   const [tlHover, setTlHover] = useState(null);
   const [showTrade, setShowTrade] = useState(true);
   const svgRef = useRef(null);
