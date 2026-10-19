@@ -258,15 +258,15 @@ const OFFICES = [
 
 const EVENTS_RAW = [
   { d: '1739-02-24', p: 'karnal', ty: 'battle', f: ['afghan', 'mughal', 'awadh'], pv: true, title: 'Battle of Karnal',
-    sum: 'Nadir Shah of Persia crosses the Khyber and meets the Mughal army 120 km north of Delhi. In about three hours his mounted musketeers and camel-borne swivel guns shatter Muhammad Shah\'s vast, slow-moving host. Saadat Khan of Awadh is captured and the paymaster-general Khan Dauran mortally wounded. The emperor submits.',
-    out: 'The myth of Mughal invincibility is broken in a single afternoon.',
+    sum: "Nadir Shah of Persia crosses the Khyber and meets the Mughal army north of Delhi. In about three hours his mounted musketeers and camel guns break Muhammad Shah's huge, slow host. Saadat Khan of Awadh is captured, and the emperor submits.",
+    out: "Mughal invincibility is broken in an afternoon.",
     lead: [['Nadir Shah', 'Shah of Persia', 'afghan'], ['Muhammad Shah', 'Mughal Emperor', 'mughal'], ['Nizam-ul-Mulk', 'Mughal grandee', 'hyderabad'], ['Saadat Khan', 'Nawab of Awadh, captured', 'awadh']],
     forces: [{ f: 'afghan', who: 'Nadir Shah', n: 55000, label: 'c. 55,000', detail: 'veteran Qizilbash and Afghan cavalry, jazayirchi musketeers' }, { f: 'mughal', who: 'Muhammad Shah', n: 150000, label: 'c. 150,000+', detail: 'plus an enormous camp of followers (est.)' }],
     moves: [{ f: 'afghan', path: ['kabul', 'peshawar', 'lahore', 'karnal'], kind: 'march', label: 'Nadir Shah', unit: 'heavy' }, { f: 'mughal', path: ['delhi', 'panipat', 'karnal'], kind: 'march', label: 'Muhammad Shah', unit: 'heavy' }] },
 
   { d: '1739-03-22', p: 'delhi', ty: 'sack', f: ['afghan', 'mughal'], pv: true, title: 'The Sack of Delhi',
-    sum: 'Rumours of Nadir\'s death spark attacks on Persian soldiers, and Nadir orders a general massacre. In a single day perhaps 20,000 to 30,000 people in Delhi are killed. Over the following weeks the Mughal treasury is carted away, including Shah Jahan\'s Peacock Throne and the Koh-i-Noor diamond.',
-    out: 'The treasury is emptied. The empire never recovers its revenue or its prestige.',
+    sum: "After rumours of Nadir's death spark attacks on his soldiers, he orders a massacre. Perhaps 20,000 to 30,000 people die in a day. Over the following weeks the Mughal treasury, including the Peacock Throne and the Koh-i-Noor, is carted away.",
+    out: "The empire never recovers its revenue or its prestige.",
     lead: [['Nadir Shah', 'Shah of Persia', 'afghan'], ['Muhammad Shah', 'Mughal Emperor', 'mughal']],
     forces: [{ f: 'afghan', who: 'Persian army in Delhi', n: 40000, label: 'c. 40,000 (est.)' }] },
 
@@ -289,7 +289,7 @@ const EVENTS_RAW = [
     sum: 'The cavalry commander who carried Maratha arms to the gates of Delhi dies on campaign on the Narmada. His son Balaji Bajirao, known as Nanasaheb, becomes Peshwa and presides over the Confederacy\'s greatest expansion.',
     lead: [['Balaji Bajirao', 'new Peshwa', 'maratha']] },
 
-  { d: '1742-04-15', p: 'burdwan', ty: 'march', f: ['maratha', 'bengal'], title: 'The Bargi raids on Bengal',
+  { d: '1742-04-15', p: 'burdwan', ty: 'march', f: ['maratha', 'bengal'], title: "Bargi raids on Bengal",
     sum: 'Raghuji Bhonsle of Nagpur sends Bhaskar Pandit\'s light horse into Bengal. For a decade the "bargis" burn villages and plunder the silk country west of the Hooghly. Calcutta digs the Maratha Ditch around its landward side.',
     lead: [['Raghuji I Bhonsle', 'Raja of Nagpur', 'maratha'], ['Bhaskar Pandit', 'Maratha general', 'maratha'], ['Alivardi Khan', 'Nawab of Bengal', 'bengal']],
     forces: [{ f: 'maratha', who: 'Bhaskar Pandit', n: 25000, label: 'c. 25,000 horse (est.)' }],
@@ -304,9 +304,9 @@ const EVENTS_RAW = [
     forces: [{ f: 'french', who: 'La Bourdonnais', n: 2000, label: 'c. 2,000 & 9 ships (est.)' }, { f: 'eic', who: 'Nicholas Morse', n: 300, label: 'c. 300 garrison' }],
     moves: [{ f: 'french', path: [[62.5, 8.5], [71.5, 6.0], [80.4, 5.3], [82.6, 7.6], [81.4, 11.0], 'madras'], kind: 'naval', label: 'La Bourdonnais', unit: 'warship' }] },
 
-  { d: '1746-11-03', p: 'adyar', ty: 'battle', f: ['french'], pv: true, title: 'Battle of the Adyar',
-    sum: 'The Nawab of Arcot sends his son Mahfuz Khan to take Madras for himself. A small French force under the Swiss officer Paradis wades the Adyar river and routs the Nawab\'s army with disciplined volley fire. Every ambitious power in India takes note: a few hundred drilled troops can beat a traditional army many times their size.',
-    out: 'The lesson of the Adyar: European-trained infantry is the new key to power in India.',
+  { d: '1746-10-24', p: 'adyar', ty: 'battle', f: ['french'], pv: true, title: 'Battle of the Adyar',
+    sum: "The Nawab of Arcot sends his son Mahfuz Khan to take Madras. A small French force under the Swiss officer Paradis wades the Adyar river and routs his army with volley fire: a few hundred drilled troops beat a traditional army many times their size.",
+    out: "European-trained infantry becomes the key to power in India.",
     lead: [['Louis Paradis', 'French officer', 'french'], ['Anwaruddin Khan', 'Nawab of Arcot', 'other'], ['Mahfuz Khan', 'his son, commanding', 'other']],
     forces: [{ f: 'french', who: 'Louis Paradis', n: 1000, label: 'c. 1,000', detail: 'including c. 300 Europeans' }, { f: 'other', who: 'Mahfuz Khan', n: 10000, label: 'c. 10,000' }] },
 
@@ -331,17 +331,17 @@ const EVENTS_RAW = [
     moves: [{ f: 'french', path: ['pondicherry', 'gingee', 'ambur'], kind: 'march', label: "d'Auteuil", unit: 'sepoy' }] },
 
   { d: '1750-12-16', p: 'gingee', ty: 'battle', f: ['hyderabad', 'french'], title: 'Nasir Jung killed',
-    sum: 'Nasir Jung, the Nizam, is shot by one of his own Pathan nobles during a French attack near Gingee. Muzaffar Jung is proclaimed Nizam at Pondicherry, and Dupleix is named governor of the Mughal lands south of the Krishna. French influence spans half the Deccan.' },
+    sum: "Nasir Jung, the Nizam, is shot by one of his own nobles during a French attack near Gingee. Muzaffar Jung is proclaimed Nizam at Pondicherry, and Dupleix is named governor of the Mughal lands south of the Krishna." },
 
   { d: '1751-02-13', p: 'hyderabad', ty: 'march', f: ['french', 'hyderabad'], title: "Bussy's march to Hyderabad",
-    sum: 'Muzaffar Jung is killed in an ambush within weeks. Bussy, Dupleix\'s ablest officer, installs Salabat Jung in his place. For seven years a French corps garrisons the Nizam\'s court, the first European subsidiary force in India and a model the Company will later copy.',
+    sum: "Muzaffar Jung is killed in an ambush, and Bussy, Dupleix's ablest officer, makes Salabat Jung Nizam. A French corps guards the Nizam's court for seven years: India's first European subsidiary force, a model the Company later copies.",
     forces: [{ f: 'french', who: 'Charles de Bussy', n: 2300, label: 'c. 2,300', detail: 'about 300 Europeans and 2,000 sepoys' }],
     moves: [{ f: 'french', path: ['pondicherry', 'arcot', [78.8, 14.8], 'hyderabad'], kind: 'march', label: 'Bussy', unit: 'sepoy' }] },
 
   { d: '1751-05-15', p: 'cuttack', ty: 'treaty', f: ['bengal', 'maratha'], title: 'Orissa ceded to the Marathas',
     sum: 'Exhausted by a decade of raids, Alivardi Khan makes peace with Raghuji Bhonsle. Orissa passes under Maratha control and Bengal pays Rs 12 lakh a year in chauth.' },
 
-  { d: '1751-09-01', p: 'arcot', ty: 'siege', f: ['eic', 'french'], pv: true, title: 'The Siege of Arcot',
+  { d: '1751-09-01', p: 'arcot', ty: 'siege', f: ['eic', 'french'], pv: true, title: "Siege of Arcot",
     sum: 'To relieve Muhammad Ali in Trichinopoly, a 25-year-old former clerk named Robert Clive seizes Chanda Sahib\'s capital, Arcot. He then holds its crumbling fort for fifty days against Raza Sahib\'s army and its French contingent.',
     out: 'Chanda Sahib\'s cause starts to collapse, and the defence makes Clive\'s name.',
     lead: [['Robert Clive', 'Captain', 'eic'], ['Raza Sahib', "Chanda Sahib's son", 'french'], ['Muhammad Ali Walajah', 'Company-backed claimant to Arcot', 'other']],
@@ -353,7 +353,7 @@ const EVENTS_RAW = [
     lead: [['Stringer Lawrence', 'Company commander', 'eic'], ['Robert Clive', 'Captain', 'eic'], ['Jacques Law', 'French commander', 'french'], ['Muhammad Ali Walajah', 'Nawab of Arcot', 'other']],
     moves: [{ f: 'eic', path: ['cuddalore', [79.2, 11.3], 'trichinopoly'], kind: 'march', label: 'Lawrence & Clive', unit: 'sepoy' }] },
 
-  { d: '1753-12-01', p: 'masulipatam', ty: 'treaty', f: ['french', 'hyderabad'], title: 'The Northern Circars go to the French',
+  { d: '1753-12-01', p: 'masulipatam', ty: 'treaty', f: ['french', 'hyderabad'], title: "Northern Circars to the French",
     sum: 'To pay Bussy\'s troops, Salabat Jung assigns the French the revenues of the Northern Circars, a rich coastal strip from Masulipatam to Ganjam. For a time France holds more Indian territory than the English Company.' },
 
   { d: '1754-06-02', p: 'delhi', ty: 'political', f: ['mughal', 'maratha'], title: 'Emperor blinded; Alamgir II enthroned',
@@ -366,8 +366,8 @@ const EVENTS_RAW = [
     sum: 'Alivardi Khan dies and is succeeded by his grandson Siraj-ud-Daula, then in his early twenties. Siraj alienates the Jagat Seth bankers and senior commanders such as Mir Jafar, and is enraged when the English fortify Calcutta without permission.',
     lead: [['Siraj-ud-Daula', 'Nawab of Bengal', 'bengal'], ['Mir Jafar', 'paymaster and commander', 'bengal'], ['Jagat Seth Mahtab Rai', 'banker', 'bengal'], ['Roger Drake', 'Governor of Calcutta', 'eic']] },
 
-  { d: '1756-06-20', p: 'calcutta', ty: 'siege', f: ['bengal', 'eic'], pv: true, title: 'The Fall of Calcutta',
-    sum: 'Siraj\'s army takes Fort William after Governor Drake and many officials flee downriver. That night prisoners are locked in the fort\'s punishment cell, the "Black Hole". The survivor J. Z. Holwell later claimed 123 of 146 died; modern historians think the true numbers were much smaller. The story becomes a rallying cry for revenge.',
+  { d: '1756-06-20', p: 'calcutta', ty: 'siege', f: ['bengal', 'eic'], pv: true, title: "Fall of Calcutta",
+    sum: "Siraj's army takes Fort William after Governor Drake flees downriver. That night prisoners are shut in the fort's lock-up, the \"Black Hole\". Holwell later claimed 123 of 146 died; historians think the numbers were far smaller. The story becomes a call for revenge.",
     forces: [{ f: 'bengal', who: 'Siraj-ud-Daula', n: 50000, label: 'c. 30,000–50,000 (est.)' }, { f: 'eic', who: 'Roger Drake, then J. Z. Holwell', n: 515, label: 'c. 515 defenders' }],
     moves: [{ f: 'bengal', path: ['murshidabad', 'plassey', 'katwa', 'calcutta'], kind: 'march', label: 'Siraj-ud-Daula', unit: 'army' }] },
 
@@ -387,22 +387,22 @@ const EVENTS_RAW = [
     sum: 'News arrives of the Seven Years\' War. Clive and Watson attack the French settlement of Chandernagore; Watson\'s ships batter Fort d\'Orléans into surrender. Siraj, who had protected the French, is humiliated.',
     moves: [{ f: 'eic', path: ['calcutta', 'chandernagore'], kind: 'naval', label: 'Watson', unit: 'warship' }] },
 
-  { d: '1757-06-04', p: 'murshidabad', ty: 'political', f: ['eic', 'bengal'], title: 'The conspiracy against Siraj',
-    sum: 'The Company\'s agent William Watts secretly signs a treaty with Mir Jafar, Siraj\'s own commander, promising him the throne in return for vast payments. The Jagat Seths, who underwrite the plot, want Siraj gone. Clive has a fake treaty drawn up to cheat the go-between Omichund of his share.',
+  { d: '1757-06-04', p: 'murshidabad', ty: 'political', f: ['eic', 'bengal'], title: "Conspiracy against Siraj",
+    sum: "The Company's agent William Watts secretly promises Mir Jafar, Siraj's own commander, the throne in return for vast payments. The Jagat Seth bankers back the plot. Clive has a fake treaty drawn up to cheat the go-between Omichund.",
     lead: [['Mir Jafar', 'commander and conspirator', 'bengal'], ['Jagat Seth Mahtab Rai', 'banker', 'bengal'], ['William Watts', 'Company agent', 'eic'], ['Omichund', 'merchant go-between', 'other']] },
 
   { d: '1757-06-23', p: 'plassey', ty: 'battle', f: ['eic', 'bengal', 'french'], pv: true, title: 'Battle of Plassey',
-    sum: 'In a mango grove by the Bhagirathi, Clive\'s small army faces Siraj-ud-Daula. A monsoon downpour soaks the Nawab\'s powder while the British keep theirs dry under tarpaulins, and Mir Jafar\'s divisions stand aside. When Siraj\'s loyal commander Mir Madan is killed, the Nawab flees. The fighting lasts less than a day.',
-    out: 'About 22 British dead. Mir Jafar becomes Nawab, and the Company becomes the real power in Bengal.',
+    sum: "In a mango grove by the Bhagirathi, Clive's small army faces Siraj-ud-Daula. Rain soaks the Nawab's powder while the British keep theirs dry, and Mir Jafar's divisions stand aside. When the loyal Mir Madan is killed, Siraj flees.",
+    out: "About 22 British dead. Mir Jafar becomes Nawab; the Company becomes the real power in Bengal.",
     lead: [['Robert Clive', 'Company commander', 'eic'], ['Siraj-ud-Daula', 'Nawab of Bengal', 'bengal'], ['Mir Jafar', 'stood aside', 'bengal'], ['Mir Madan', 'loyal commander, killed', 'bengal']],
     forces: [{ f: 'eic', who: 'Robert Clive', n: 3000, label: 'c. 3,000', detail: 'about 900 Europeans, 2,100 sepoys, 10 guns' }, { f: 'bengal', who: 'Siraj-ud-Daula', n: 50000, label: 'c. 50,000', detail: "including Mir Jafar's idle divisions; c. 50 French gunners under St Frais" }],
     moves: [{ f: 'eic', path: ['calcutta', 'chandernagore', 'katwa', 'plassey'], kind: 'march', label: 'Clive', unit: 'sepoy' }, { f: 'bengal', path: ['murshidabad', 'plassey'], kind: 'march', label: 'Siraj-ud-Daula', unit: 'army' }] },
 
   { d: '1757-07-02', p: 'murshidabad', ty: 'massacre', f: ['bengal', 'eic'], title: 'Death of Siraj-ud-Daula',
-    sum: 'Captured while fleeing, Siraj is brought back to Murshidabad and stabbed to death on the orders of Mir Jafar\'s son Miran. Mir Jafar pays the Company and its officers enormous sums. Clive himself receives over £200,000, an almost unimaginable fortune.' },
+    sum: "Caught while fleeing, Siraj is stabbed to death in Murshidabad on the orders of Mir Jafar's son Miran. Mir Jafar pays the Company and its officers enormous sums; Clive alone receives over £200,000." },
 
-  { d: '1757-07-06', p: 'calcutta', ty: 'trade', f: ['eic', 'bengal'], title: 'The treasure boats',
-    sum: 'Mir Jafar starts paying for his throne. The first instalment of the Company\'s reward, coined silver packed in chests, is sent down the river from Murshidabad to Calcutta in a large flotilla of boats. For years afterwards the plunder of Plassey flows to the Company and its servants, and silver drains out of Bengal.',
+  { d: '1757-07-06', p: 'calcutta', ty: 'trade', f: ['eic', 'bengal'], title: "Treasure boats from Murshidabad",
+    sum: "Mir Jafar begins to pay for his throne. Chests of coined silver go down the river from Murshidabad to Calcutta in a great flotilla of boats. For years the plunder of Plassey flows to the Company and its servants.",
     moves: [{ f: 'eic', path: ['murshidabad', 'plassey', 'katwa', [88.42, 23.2], 'chandernagore', 'calcutta'], kind: 'river', unit: 'treasure', label: 'Treasure flotilla' }] },
 
   { d: '1758-04-20', p: 'lahore', ty: 'march', f: ['maratha', 'afghan'], title: 'Marathas reach Lahore and Attock',
@@ -410,14 +410,14 @@ const EVENTS_RAW = [
     moves: [{ f: 'maratha', path: ['delhi', 'sirhind', 'lahore', [72.25, 33.9]], kind: 'march', label: 'Raghunathrao', unit: 'cavalry' }] },
 
   { d: '1758-06-02', p: 'cuddalore', ty: 'siege', f: ['french', 'eic'], title: "Lally's offensive",
-    sum: 'The Comte de Lally lands with French reinforcements and takes Fort St David. He besieges Madras from December 1758 but abandons the siege when a British fleet arrives in February 1759. He also recalls Bussy from Hyderabad, throwing away France\'s influence in the Deccan.',
+    sum: "The Comte de Lally lands with reinforcements and takes Fort St David. His siege of Madras fails when a British fleet arrives in February 1759, and by recalling Bussy from Hyderabad he throws away France's hold on the Deccan.",
     moves: [{ f: 'french', path: ['pondicherry', 'cuddalore'], kind: 'march', label: 'Lally', unit: 'sepoy' }, { f: 'french', path: ['pondicherry', [80.0, 12.4], 'madras'], kind: 'march', label: 'Siege of Madras', unit: 'artillery' }] },
 
   { d: '1759-04-05', p: 'patna', ty: 'siege', f: ['mughal', 'eic'], title: 'Prince Ali Gauhar invades Bihar',
     sum: 'The Mughal crown prince Ali Gauhar, fleeing his father\'s murderous wazir, invades Bihar and besieges Patna. Clive marches up from Murshidabad and the prince retreats, beginning years of wandering in the eastern provinces.',
     moves: [{ f: 'mughal', path: ['allahabad', 'benares', 'patna'], kind: 'march', label: 'Ali Gauhar', unit: 'royal' }, { f: 'eic', path: ['murshidabad', [87.0, 25.2], 'patna'], kind: 'march', label: 'Clive', unit: 'sepoy' }] },
 
-  { d: '1759-04-08', p: 'masulipatam', ty: 'siege', f: ['eic', 'french'], title: 'Forde storms Masulipatam',
+  { d: '1759-04-07', p: 'masulipatam', ty: 'siege', f: ['eic', 'french'], title: 'Forde storms Masulipatam',
     sum: 'Clive sends Colonel Francis Forde from Bengal to the Northern Circars. Forde defeats the French at Condore and storms Masulipatam by night, and Salabat Jung switches his favour to the English.',
     moves: [{ f: 'eic', path: ['calcutta', [87.9, 21.0], [86.6, 19.6], [84.4, 18.3], [83.0, 17.3], 'masulipatam'], kind: 'naval', label: 'Forde', unit: 'warship' }] },
 
@@ -435,8 +435,8 @@ const EVENTS_RAW = [
     lead: [['Mir Qasim', 'new Nawab', 'bengal'], ['Henry Vansittart', 'Governor of Bengal', 'eic']] },
 
   { d: '1761-01-14', p: 'panipat', ty: 'battle', f: ['maratha', 'afghan', 'awadh'], pv: true, title: 'Third Battle of Panipat',
-    sum: 'Trapped for weeks and starving in its fortified camp, the Maratha army of Sadashivrao Bhau breaks out against Ahmad Shah Durrani and his Indian allies, the Rohilla Najib-ud-Daula and Shuja-ud-Daula of Awadh. After hours of slaughter the Maratha line collapses. The Bhau and the Peshwa\'s heir Vishwasrao are killed, and tens of thousands of soldiers and camp followers are cut down in the pursuit.',
-    out: 'One of the largest battles of the century. Maratha expansion in the north halts for a decade, leaving a vacuum the Company will fill.',
+    sum: "Starving in their fortified camp, the Marathas under Sadashivrao Bhau break out against Ahmad Shah Durrani and his allies, the Rohilla Najib-ud-Daula and Shuja-ud-Daula of Awadh. The Maratha line collapses; the Bhau and the Peshwa's heir are killed, and tens of thousands die in the pursuit.",
+    out: "Maratha expansion in the north stops for a decade, leaving a vacuum the Company will fill.",
     lead: [['Ahmad Shah Durrani', 'King of the Afghans', 'afghan'], ['Sadashivrao Bhau', 'Maratha commander, killed', 'maratha'], ['Vishwasrao', "Peshwa's heir, killed", 'maratha'], ['Ibrahim Khan Gardi', 'commander of trained infantry', 'maratha'], ['Shuja-ud-Daula', 'Nawab of Awadh', 'awadh']],
     forces: [{ f: 'afghan', who: 'Ahmad Shah Durrani', n: 80000, label: 'c. 80,000', detail: 'about 42,000 Afghan cavalry plus Rohilla and Awadh allies' }, { f: 'maratha', who: 'Sadashivrao Bhau', n: 55000, label: 'c. 45,000–60,000', detail: "including Ibrahim Khan Gardi's trained infantry; perhaps 200,000 non-combatants in camp" }],
     moves: [{ f: 'maratha', path: ['poona', 'indore', 'gwalior', 'delhi', 'panipat'], kind: 'march', label: 'Sadashivrao Bhau', unit: 'army' }, { f: 'afghan', path: ['kandahar', 'lahore', [77.6, 29.6], 'panipat'], kind: 'march', label: 'Ahmad Shah Durrani', unit: 'heavy' }] },
@@ -453,16 +453,16 @@ const EVENTS_RAW = [
     lead: [['Hyder Ali', 'de facto ruler of Mysore', 'mysore']] },
 
   { d: '1763-09-05', p: 'udhuanala', ty: 'battle', f: ['eic', 'bengal'], title: 'War with Mir Qasim',
-    sum: 'Mir Qasim tries to stop Company servants abusing their duty-free trading privileges, and war follows. Major Thomas Adams defeats his modernised army at Katwa, Giria and finally the entrenched line of Udhua Nala. Mir Qasim flees west and Mir Jafar is restored.',
+    sum: "Mir Qasim tries to stop Company servants abusing their duty-free trade, and war follows. Major Thomas Adams beats his modernised army at Katwa, Giria and the entrenched line of Udhua Nala. Mir Qasim flees west; Mir Jafar is restored.",
     forces: [{ f: 'eic', who: 'Major Thomas Adams', n: 3000, label: 'c. 3,000 (est.)' }, { f: 'bengal', who: 'Mir Qasim', n: 40000, label: 'c. 40,000 (est.)', detail: 'commanders Gurgin Khan and Walter Reinhardt' }],
     moves: [{ f: 'eic', path: ['calcutta', 'katwa', 'murshidabad', 'udhuanala'], kind: 'march', label: 'Adams', unit: 'sepoy' }, { f: 'bengal', path: ['udhuanala', [86.5, 25.4], 'patna'], kind: 'retreat', label: 'Mir Qasim', unit: 'infantry' }] },
 
-  { d: '1763-10-06', p: 'patna', ty: 'massacre', f: ['bengal', 'eic'], title: 'The Patna massacre',
-    sum: 'As his cause collapses, Mir Qasim orders the execution of the Company prisoners held at Patna. The European mercenary Walter Reinhardt, known as Sumroo, carries it out; around 45 Company men, including the Patna chief William Ellis, are killed. The Jagat Seth bankers are also put to death.' },
+  { d: '1763-10-06', p: 'patna', ty: 'massacre', f: ['bengal', 'eic'], title: "Patna massacre",
+    sum: "As his cause collapses, Mir Qasim has the Company prisoners at Patna executed. The mercenary Walter Reinhardt, known as Sumroo, kills around 45, including the Patna chief William Ellis. The Jagat Seth bankers are also put to death." },
 
   { d: '1764-10-22', p: 'buxar', ty: 'battle', f: ['eic', 'awadh', 'mughal', 'bengal'], pv: true, title: 'Battle of Buxar',
-    sum: 'Mir Qasim, Shuja-ud-Daula of Awadh and Emperor Shah Alam II join forces to drive the Company out of Bihar. Major Hector Munro meets them at Buxar on the Ganges. After about three hours of hard fighting the allied army breaks. Shah Alam, who kept his own troops largely out of the battle, soon comes over to the British camp.',
-    out: 'More decisive than Plassey: the Company is now the strongest military power in eastern India.',
+    sum: "Mir Qasim, Shuja-ud-Daula and Shah Alam II join forces to drive the Company out of Bihar. Major Hector Munro meets them at Buxar on the Ganges, and after three hours the allied army breaks. Shah Alam, who kept his troops back, soon joins the British camp.",
+    out: "More decisive than Plassey: the Company is now the strongest power in eastern India.",
     lead: [['Hector Munro', 'Company commander', 'eic'], ['Shuja-ud-Daula', 'Nawab of Awadh', 'awadh'], ['Shah Alam II', 'Mughal Emperor', 'mughal'], ['Mir Qasim', 'deposed Nawab of Bengal', 'bengal']],
     forces: [{ f: 'eic', who: 'Major Hector Munro', n: 7072, label: '7,072', detail: '857 Europeans, 5,297 sepoys, 918 Indian cavalry' }, { f: 'awadh', who: 'Shuja-ud-Daula, Mir Qasim & Shah Alam', n: 40000, label: 'c. 40,000 (est.)' }],
     moves: [{ f: 'eic', path: ['patna', [84.6, 25.45], 'buxar'], kind: 'march', label: 'Munro', unit: 'sepoy' }, { f: 'awadh', path: ['lucknow', 'benares', 'buxar'], kind: 'march', label: 'Shuja-ud-Daula', unit: 'heavy' }, { f: 'mughal', path: ['allahabad', 'benares', [83.65, 25.48]], kind: 'march', label: 'Shah Alam', unit: 'royal' }] },
@@ -472,8 +472,8 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['allahabad', 'jajmau'], kind: 'march', label: 'Carnac', unit: 'sepoy' }] },
 
   { d: '1765-08-12', p: 'allahabad', ty: 'treaty', f: ['eic', 'mughal', 'awadh'], pv: true, title: 'Treaty of Allahabad: the Diwani',
-    sum: 'Clive, back in India, meets Shah Alam at Allahabad. The emperor grants the Company the Diwani, the right to collect the revenues of Bengal, Bihar and Orissa, in return for an annual tribute of Rs 26 lakh and the districts of Kora and Allahabad. The ceremony is improvised, with Clive\'s dining table serving as a throne. Shuja-ud-Daula gets Awadh back for an indemnity of Rs 50 lakh.',
-    out: 'A trading corporation becomes the tax collector and effective ruler of tens of millions of people.',
+    sum: "At Allahabad, Shah Alam grants Clive the Diwani: the right to collect the revenues of Bengal, Bihar and Orissa. In return the Company pays him Rs 26 lakh a year and gives him Kora and Allahabad; Clive's dining table serves as the throne. Shuja-ud-Daula gets Awadh back for Rs 50 lakh.",
+    out: "A trading company becomes tax collector for tens of millions of people.",
     lead: [['Robert Clive', 'Governor of Bengal', 'eic'], ['Shah Alam II', 'Mughal Emperor', 'mughal'], ['Shuja-ud-Daula', 'Nawab of Awadh', 'awadh']],
     moves: [{ f: 'eic', path: ['calcutta', 'murshidabad', 'patna', 'benares', 'allahabad'], kind: 'march', label: 'Clive', unit: 'sepoy' }] },
 
@@ -488,37 +488,37 @@ const EVENTS_RAW = [
     sum: 'Hyder Ali and the Nizam invade the Carnatic. Colonel Joseph Smith beats them at Changama and Tiruvannamalai and the Nizam changes sides, but Hyder\'s fast cavalry keeps the war alive across the plains.',
     moves: [{ f: 'mysore', path: ['seringapatam', 'bangalore', [78.6, 12.5], 'tiruvannamalai'], kind: 'march', label: 'Hyder Ali', unit: 'cavalry' }] },
 
-  { d: '1769-04-04', p: 'madras', ty: 'treaty', f: ['mysore', 'eic'], title: 'Hyder Ali at the gates of Madras',
-    sum: 'Slipping past the Company army, Hyder rides about 120 miles in three and a half days with 6,000 cavalry and appears within five miles of Madras. The alarmed council signs the Treaty of Madras: mutual return of conquests and a defensive alliance the British will not honour.',
+  { d: '1769-03-29', p: 'madras', ty: 'treaty', f: ['mysore', 'eic'], title: 'Hyder Ali at the gates of Madras',
+    sum: "Slipping past the Company army, Hyder rides some 120 miles in three and a half days with 6,000 horse and appears within five miles of Madras. The alarmed council signs the Treaty of Madras: conquests returned, and a defensive alliance the British will not honour.",
     forces: [{ f: 'mysore', who: 'Hyder Ali', n: 6000, label: 'c. 6,000 cavalry' }],
     moves: [{ f: 'mysore', path: ['bangalore', [79.0, 12.7], 'madras'], kind: 'march', label: 'Hyder Ali', unit: 'cavalry' }] },
 
-  { d: '1770-06-01', p: [88.6, 23.9], pname: 'Bengal & Bihar', ty: 'famine', f: ['eic', 'bengal'], pv: true, title: 'The Great Bengal Famine',
-    sum: 'After the rains fail in 1769, famine sweeps Bengal and Bihar. The Company\'s revenue collectors keep demanding taxes, and some of its servants corner the grain trade. Estimates of the dead range from about 1.2 million to as many as 10 million, perhaps a fifth to a third of the population.',
-    out: 'Revenue collection barely falls. The scandal helps turn British opinion against the Company.' },
+  { d: '1770-06-01', p: [88.6, 23.9], pname: 'Bengal & Bihar', ty: 'famine', f: ['eic', 'bengal'], pv: true, title: "Great Bengal Famine",
+    sum: "The rains fail in 1769 and famine sweeps Bengal and Bihar. Company collectors keep demanding taxes, and some of its servants corner the grain trade. Estimates of the dead run from about 1.2 million to 10 million, perhaps a fifth to a third of the population.",
+    out: "Revenue barely falls. The scandal turns British opinion against the Company." },
 
-  { d: '1772-01-06', p: 'delhi', ty: 'march', f: ['mughal', 'maratha'], pv: true, title: 'The Emperor returns to Delhi',
-    sum: 'Tired of life as a British pensioner in Allahabad, Shah Alam marches for his capital under the protection of a Maratha army led by Mahadji Scindia, and re-enters the Red Fort after twelve years of exile. The British stop paying his tribute. Delhi becomes a Maratha protectorate.',
-    out: 'Shah Alam chooses the Marathas over the Company. The Mughal throne becomes a Maratha asset.',
+  { d: '1772-01-06', p: 'delhi', ty: 'march', f: ['mughal', 'maratha'], pv: true, title: "Shah Alam returns to Delhi",
+    sum: "Tired of life as a British pensioner in Allahabad, Shah Alam marches home under the protection of Mahadji Scindia's army and re-enters the Red Fort after twelve years in exile. The British stop his tribute, and Delhi becomes a Maratha protectorate.",
+    out: "The emperor chooses the Marathas over the Company.",
     lead: [['Shah Alam II', 'Mughal Emperor', 'mughal'], ['Mahadji Scindia', 'Maratha chief', 'maratha'], ['Mirza Najaf Khan', 'Mughal general', 'mughal']],
     moves: [{ f: 'mughal', path: ['allahabad', 'kanpur', [79.6, 27.3], 'aligarh', 'delhi'], kind: 'march', label: 'Shah Alam II', unit: 'royal' }, { f: 'maratha', path: ['gwalior', 'agra', 'mathura', 'delhi'], kind: 'march', label: 'Mahadji Scindia', unit: 'cavalry' }] },
 
   { d: '1772-04-13', p: 'calcutta', ty: 'policy', f: ['eic'], title: 'Warren Hastings takes charge',
-    sum: 'Warren Hastings becomes Governor of Bengal. The Company ends the dual system, moves the treasury from Murshidabad to Calcutta and begins to govern directly. The Regulating Act of 1773 makes him the first Governor-General in 1774, under a hostile council led by Philip Francis.',
+    sum: "Warren Hastings becomes Governor of Bengal. The Company ends the dual system, moves the treasury from Murshidabad to Calcutta and starts to govern directly. The Regulating Act makes him Governor-General in 1774, under a hostile council led by Philip Francis.",
     lead: [['Warren Hastings', 'Governor of Bengal', 'eic'], ['Philip Francis', 'councillor and rival', 'eic']] },
 
   { d: '1773-08-30', p: 'poona', ty: 'massacre', f: ['maratha'], title: 'Murder of Peshwa Narayanrao',
-    sum: 'Peshwa Madhavrao I died of tuberculosis in 1772. His young brother Narayanrao is murdered by palace guards, and his uncle Raghunathrao is widely blamed. Nana Phadnavis and a council of ministers rally behind Narayanrao\'s posthumous son, Madhavrao II. Raghunathrao turns to the British.',
+    sum: "Peshwa Madhavrao I has died of tuberculosis. His young brother Narayanrao is murdered by palace guards, and their uncle Raghunathrao is blamed. Nana Phadnavis and a council of ministers back Narayanrao's infant son; Raghunathrao turns to the British.",
     lead: [['Raghunathrao', 'claimant', 'maratha'], ['Nana Phadnavis', 'minister', 'maratha']] },
 
   { d: '1773-09-07', p: 'benares', ty: 'treaty', f: ['eic', 'awadh', 'mughal'], title: 'Treaty of Benares',
     sum: 'Hastings sells Kora and Allahabad, granted to Shah Alam in 1765, to Shuja-ud-Daula for Rs 50 lakh, and stops the emperor\'s tribute. He also agrees to hire out a Company brigade to Shuja to conquer the Rohillas.' },
 
-  { d: '1773-11-01', p: 'patna', ty: 'trade', f: ['eic'], title: 'The opium monopoly',
+  { d: '1773-11-01', p: 'patna', ty: 'trade', f: ['eic'], title: "Opium monopoly",
     sum: 'Hastings makes the growing and sale of Bihar opium a Company monopoly. The drug is auctioned at Calcutta and smuggled to China by private "country" traders, whose silver pays for the tea that has become the Company\'s most valuable cargo in London.',
     moves: [{ f: 'eic', path: ['patna', 'udhuanala', 'murshidabad', [88.42, 23.2], 'calcutta'], kind: 'river', unit: 'caravan', label: 'Bihar opium' }, { f: 'eic', path: ['calcutta', [88.2, 21.4], [90.8, 18.4], [93.6, 15.2], [97.4, 12.8]], kind: 'naval', unit: 'merchant', label: 'Country ships to Canton' }] },
 
-  { d: '1774-04-23', p: 'katra', ty: 'battle', f: ['eic', 'awadh'], title: 'The Rohilla War',
+  { d: '1774-04-23', p: 'katra', ty: 'battle', f: ['eic', 'awadh'], title: "Rohilla War",
     sum: 'Colonel Champion\'s Company brigade, hired out to Shuja-ud-Daula, defeats the Rohilla Afghans at Miranpur Katra, and their leader Hafiz Rahmat Khan is killed. The plundering of Rohilkhand becomes one of the charges at Hastings\'s impeachment.',
     moves: [{ f: 'eic', path: ['lucknow', [79.9, 27.5], 'katra'], kind: 'march', label: 'Champion', unit: 'sepoy' }] },
 
@@ -526,8 +526,8 @@ const EVENTS_RAW = [
     sum: 'The Bombay government agrees to restore Raghunathrao as Peshwa in exchange for Salsette and Bassein. Calcutta denounces the deal, but the First Anglo-Maratha War has begun.' },
 
   { d: '1779-01-16', p: 'wadgaon', ty: 'battle', f: ['eic', 'maratha'], pv: true, title: 'Convention of Wadgaon',
-    sum: 'A Bombay army escorting Raghunathrao climbs the Western Ghats toward Poona, is surrounded near Talegaon by Maratha forces under Mahadji Scindia and Nana Phadnavis, and retreats. At Wadgaon its commanders sign a humiliating convention giving up all recent conquests. Calcutta repudiates it.',
-    out: 'One of the Company\'s worst humiliations: the Marathas are still a match for it.',
+    sum: "A Bombay army marching on Poona with Raghunathrao is surrounded near Talegaon by Mahadji Scindia and Nana Phadnavis, and falls back. At Wadgaon its commanders sign a humiliating convention giving up all recent gains. Calcutta repudiates it.",
+    out: "The Marathas are still a match for the Company.",
     forces: [{ f: 'eic', who: 'Colonel Egerton & John Carnac', n: 3900, label: 'c. 3,900' }, { f: 'maratha', who: 'Mahadji Scindia & Nana Phadnavis', n: 50000, label: 'c. 50,000 (est.)' }],
     moves: [{ f: 'eic', path: ['bombay', [73.3, 18.75], 'wadgaon'], kind: 'march', label: 'Bombay army', unit: 'sepoy' }, { f: 'maratha', path: ['poona', 'wadgaon'], kind: 'march', label: 'Mahadji Scindia', unit: 'cavalry' }] },
 
@@ -545,8 +545,8 @@ const EVENTS_RAW = [
     sum: 'Captain William Popham\'s men scale the cliffs of Gwalior, Mahadji Scindia\'s supposedly impregnable fortress, at night with rope ladders. The coup restores some British prestige in the north.' },
 
   { d: '1780-09-10', p: 'pollilur', ty: 'battle', f: ['mysore', 'eic'], pv: true, title: 'Battle of Pollilur',
-    sum: 'Colonel William Baillie\'s column, marching to join Sir Hector Munro, is cut off by Tipu Sultan and then overwhelmed by Hyder\'s main army after its ammunition carts explode. It is the worst defeat the Company has yet suffered in India. Baillie and some 200 Europeans are marched to the dungeons of Seringapatam; Tipu later has the battle painted on the walls of his summer palace.',
-    out: 'For a moment it seems the British might be driven out of the south altogether.',
+    sum: "Colonel Baillie's column, marching to join Sir Hector Munro, is cut off by Tipu Sultan and overwhelmed by Hyder's main army after its ammunition carts explode. It is the Company's worst defeat in India yet. Baillie and about 200 Europeans are taken to the dungeons of Seringapatam.",
+    out: "For a moment the British look likely to be driven out of the south.",
     lead: [['Tipu Sultan', 'Mysore commander', 'mysore'], ['Hyder Ali', 'ruler of Mysore', 'mysore'], ['William Baillie', 'Company colonel, captured', 'eic'], ['Sir Hector Munro', 'Company commander', 'eic']],
     forces: [{ f: 'eic', who: 'Colonel William Baillie', n: 3800, label: 'c. 3,800' }, { f: 'mysore', who: 'Tipu Sultan & Hyder Ali', n: 40000, label: 'c. 30,000–50,000 (est.)' }],
     moves: [{ f: 'eic', path: [[79.95, 13.9], [79.8, 13.3], 'pollilur'], kind: 'march', label: 'Baillie', unit: 'sepoy' }, { f: 'mysore', path: ['arcot', 'pollilur'], kind: 'march', label: 'Tipu Sultan', unit: 'cavalry' }] },
@@ -557,7 +557,7 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['cuddalore', 'portonovo'], kind: 'march', label: 'Coote', unit: 'sepoy' }] },
 
   { d: '1781-08-16', p: 'benares', ty: 'battle', f: ['eic'], title: "Chait Singh's revolt",
-    sum: 'Hastings arrives at Benares demanding huge sums from Raja Chait Singh and places him under arrest. The Raja\'s men kill the sepoys guarding him and Hastings has to escape to Chunar. The episode, and the later squeezing of the Begums of Awadh, feature prominently in his impeachment.' },
+    sum: "Hastings arrives at Benares demanding huge sums from Raja Chait Singh and has him arrested. The Raja's men kill the sepoys guarding him, and Hastings has to escape to Chunar. The affair becomes a charge at his impeachment." },
 
   { d: '1782-05-17', p: 'salbai', ty: 'treaty', f: ['eic', 'maratha'], title: 'Treaty of Salbai',
     sum: 'Mahadji Scindia brokers peace between the Company and the Peshwa\'s government. The British keep Salsette, abandon Raghunathrao and hand back their other conquests. Mahadji emerges as the most powerful man in northern India.' },
@@ -576,12 +576,12 @@ const EVENTS_RAW = [
     sum: 'Warren Hastings sails for England. Edmund Burke and Philip Francis pursue him, and in February 1788 his impeachment opens in Westminster Hall. The trial lasts seven years and ends in acquittal in 1795.' },
 
   { d: '1786-09-12', p: 'calcutta', ty: 'policy', f: ['eic'], title: 'Lord Cornwallis arrives',
-    sum: 'Charles, Earl Cornwallis, the general who surrendered at Yorktown, arrives as Governor-General with powers strengthened by Pitt\'s India Act. He sets out to purge corruption and professionalise the Company\'s administration, while excluding Indians from senior posts.',
+    sum: "Lord Cornwallis, who surrendered at Yorktown, arrives as Governor-General with powers strengthened by Pitt's India Act. He sets out to end corruption and professionalise the Company's government, while shutting Indians out of senior posts.",
     lead: [['Charles, Earl Cornwallis', 'Governor-General', 'eic']] },
 
-  { d: '1788-08-10', p: 'delhi', ty: 'massacre', f: ['mughal', 'maratha'], pv: true, title: 'The Blinding of Shah Alam',
-    sum: 'While Mahadji Scindia is distracted in Rajputana, the young Rohilla chief Ghulam Qadir seizes the Red Fort. Searching for hidden treasure, he torments the royal family for weeks, and on 10 August blinds the elderly emperor himself. Maratha troops retake Delhi in October; Ghulam Qadir is caught and executed early in 1789.',
-    out: 'The emperor survives, blind, as a symbol whose name still confers legitimacy.',
+  { d: '1788-08-10', p: 'delhi', ty: 'massacre', f: ['mughal', 'maratha'], pv: true, title: "Blinding of Shah Alam",
+    sum: "While Mahadji Scindia is busy in Rajputana, the Rohilla chief Ghulam Qadir seizes the Red Fort. Hunting for hidden treasure, he torments the royal family for weeks and on 10 August blinds the old emperor himself. Maratha troops retake Delhi in October; Ghulam Qadir is executed early in 1789.",
+    out: "Shah Alam survives, blind, his name still the source of legitimacy.",
     lead: [['Shah Alam II', 'Mughal Emperor', 'mughal'], ['Ghulam Qadir', 'Rohilla chief', 'other'], ['Mahadji Scindia', 'Regent', 'maratha']],
     moves: [{ f: 'other', path: [[78.1, 29.9], 'delhi'], kind: 'march', label: 'Ghulam Qadir', unit: 'cavalry' }, { f: 'maratha', path: ['mathura', 'delhi'], kind: 'march', label: "Scindia's army", unit: 'sepoy' }] },
 
@@ -594,11 +594,11 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['madras', 'vellore', [78.4, 12.8], 'bangalore'], kind: 'march', label: 'Cornwallis', unit: 'artillery' }] },
 
   { d: '1792-03-18', p: 'seringapatam', ty: 'siege', f: ['eic', 'mysore', 'maratha', 'hyderabad'], title: 'Siege of Seringapatam; Mysore partitioned',
-    sum: 'With Maratha and Nizam armies alongside, Cornwallis storms Tipu\'s lines outside Seringapatam. Tipu cedes half his kingdom: Malabar, Coorg, Dindigul and the Baramahal go to the Company, and the Marathas and the Nizam take lands to the north. He pays an indemnity of 3.3 crore rupees and hands over two young sons as hostages.',
+    sum: "With Maratha and Nizam armies alongside, Cornwallis storms Tipu's lines outside Seringapatam. Tipu cedes half his kingdom, pays 3.3 crore rupees and hands over two young sons as hostages. Malabar, Coorg, Dindigul and the Baramahal go to the Company.",
     forces: [{ f: 'eic', who: 'Lord Cornwallis', n: 22000, label: 'c. 22,000 + allies (est.)' }, { f: 'mysore', who: 'Tipu Sultan', n: 45000, label: 'c. 45,000 (est.)' }],
     moves: [{ f: 'eic', path: ['bangalore', [77.2, 12.6], 'seringapatam'], kind: 'march', label: 'Cornwallis', unit: 'sepoy' }] },
 
-  { d: '1793-03-22', p: 'calcutta', ty: 'policy', f: ['eic'], title: 'The Permanent Settlement',
+  { d: '1793-03-22', p: 'calcutta', ty: 'policy', f: ['eic'], title: "Permanent Settlement",
     sum: 'Cornwallis fixes Bengal\'s land revenue in perpetuity, turning the zamindars into landlords on the English model. In the same year war with revolutionary France resumes and Pondicherry is seized once more.' },
 
   { d: '1794-02-12', p: 'poona', ty: 'political', f: ['maratha'], title: 'Death of Mahadji Scindia',
@@ -609,24 +609,24 @@ const EVENTS_RAW = [
     moves: [{ f: 'maratha', path: ['poona', 'kharda'], kind: 'march', label: 'Maratha armies', unit: 'cavalry' }, { f: 'hyderabad', path: ['hyderabad', [76.6, 18.2], 'kharda'], kind: 'march', label: 'Nizam Ali Khan', unit: 'army' }] },
 
   { d: '1798-05-17', p: 'calcutta', ty: 'policy', f: ['eic', 'french'], title: 'Richard Wellesley arrives',
-    sum: 'Richard Wellesley, Earl of Mornington, arrives as Governor-General determined to destroy French influence and make the Company paramount in India, by force if necessary. Napoleon\'s invasion of Egypt that summer makes the French threat seem very real.',
+    sum: "Richard Wellesley arrives as Governor-General, set on destroying French influence and making the Company paramount, by force if need be. Napoleon's invasion of Egypt that summer makes the French threat look real.",
     lead: [['Richard Wellesley', 'Governor-General', 'eic']] },
 
   { d: '1798-10-22', p: 'hyderabad', ty: 'treaty', f: ['eic', 'hyderabad', 'french'], title: 'The Nizam disarms his French corps',
-    sum: 'Under a subsidiary alliance signed in September, the Nizam replaces his large French-officered corps with Company battalions he pays for. Company troops surround the French cantonment and disarm it without a shot. Hyderabad becomes a British client state.',
+    sum: "Under a subsidiary alliance, the Nizam replaces his French-officered corps with Company battalions that he pays for. Company troops surround the French cantonment and disarm it without a shot. Hyderabad becomes a British client.",
     forces: [{ f: 'french', who: "French-officered corps (formerly Raymond's)", n: 14000, label: 'c. 14,000 (est.)' }] },
 
-  { d: '1799-05-04', p: 'seringapatam', ty: 'siege', f: ['eic', 'mysore', 'hyderabad'], pv: true, title: 'The Fall of Seringapatam',
-    sum: 'Two armies converge on Tipu\'s island capital: General Harris from Madras with the Nizam\'s contingent, including Colonel Arthur Wellesley, and General Stuart from Bombay. After a month\'s siege the breach is stormed in the heat of the afternoon. Tipu Sultan is killed fighting near the Water Gate and his palace is plundered.',
-    out: 'Mysore becomes a Company protectorate under the restored Wodeyar dynasty.',
+  { d: '1799-05-04', p: 'seringapatam', ty: 'siege', f: ['eic', 'mysore', 'hyderabad'], pv: true, title: "Fall of Seringapatam",
+    sum: "Two armies converge on Tipu's island capital: Harris from Madras, with the Nizam's contingent and Colonel Arthur Wellesley, and Stuart from Bombay. After a month's siege the breach is stormed in the afternoon heat. Tipu dies fighting near the Water Gate.",
+    out: "Mysore becomes a Company protectorate under the restored Wodeyars.",
     lead: [['George Harris', 'Company commander', 'eic'], ['Arthur Wellesley', 'Colonel', 'eic'], ['Tipu Sultan', 'Sultan of Mysore, killed', 'mysore'], ['Mir Alam', "commander of the Nizam's contingent", 'hyderabad']],
     forces: [{ f: 'eic', who: 'General George Harris', n: 43000, label: 'c. 43,000', detail: 'about 21,000 Madras army, 16,000 Nizam\'s contingent, 6,400 Bombay army (est.)' }, { f: 'mysore', who: 'Tipu Sultan', n: 35000, label: 'c. 30,000–37,000 (est.)' }],
     moves: [{ f: 'eic', path: ['madras', 'vellore', [78.1, 12.6], [77.2, 12.3], 'seringapatam'], kind: 'march', label: 'Harris', unit: 'artillery' }, { f: 'hyderabad', path: ['hyderabad', [78.6, 14.8], 'vellore'], kind: 'march', label: "Nizam's contingent", unit: 'cavalry' }, { f: 'eic', path: ['cannanore', [75.9, 12.2], 'seringapatam'], kind: 'march', label: 'Stuart', unit: 'sepoy' }] },
 
   { d: '1800-03-13', p: 'poona', ty: 'political', f: ['maratha'], title: 'Death of Nana Phadnavis',
-    sum: 'Nana Phadnavis, who held the Confederacy together for a quarter of a century, dies in Poona. The British Resident wrote that with him went "all the wisdom and moderation of the Maratha government". Daulat Rao Scindia and Yashwantrao Holkar turn on each other.' },
+    sum: "Nana Phadnavis, who held the Confederacy together for a quarter of a century, dies in Poona. The British Resident wrote that with him went \"all the wisdom and moderation of the Maratha government\". Scindia and Holkar turn on each other." },
 
-  { d: '1800-10-12', p: 'bellary', ty: 'treaty', f: ['eic', 'hyderabad'], title: 'The Ceded Districts',
+  { d: '1800-10-12', p: 'bellary', ty: 'treaty', f: ['eic', 'hyderabad'], title: "Ceded Districts",
     sum: 'To pay for his enlarged subsidiary force, the Nizam cedes to the Company the districts he had gained from Mysore, including Bellary and Cuddapah, thereafter known as the Ceded Districts.' },
 
   { d: '1801-07-31', p: 'arcot', ty: 'policy', f: ['eic'], title: 'Annexation of the Carnatic',
@@ -640,7 +640,7 @@ const EVENTS_RAW = [
     moves: [{ f: 'maratha', path: ['indore', [75.2, 20.4], 'poona'], kind: 'march', label: 'Yashwantrao Holkar', unit: 'cavalry' }, { f: 'maratha', path: ['poona', 'bassein'], kind: 'retreat', label: 'Baji Rao II', unit: 'royal' }] },
 
   { d: '1802-12-31', p: 'bassein', ty: 'treaty', f: ['eic', 'maratha'], title: 'Treaty of Bassein',
-    sum: 'The fugitive Peshwa signs a subsidiary alliance: a Company force will be stationed in his lands, paid for with ceded territory, and he will conduct no foreign policy without British approval. To Scindia and the Bhonsle it is a betrayal of Maratha independence, and war follows.' },
+    sum: "The fugitive Peshwa signs a subsidiary alliance: a Company force in his lands, paid for with ceded territory, and no foreign policy without British approval. To Scindia and the Bhonsle it is a betrayal, and war follows." },
 
   { d: '1803-05-13', p: 'poona', ty: 'march', f: ['eic', 'maratha'], title: 'Baji Rao II restored',
     sum: 'Major-General Arthur Wellesley marches north from Mysore and restores Baji Rao II at Poona. The Peshwa is now a British client.',
@@ -655,15 +655,15 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['kanpur', [79.4, 27.0], 'aligarh'], kind: 'march', label: 'Lake', unit: 'artillery' }] },
 
   { d: '1803-09-11', p: 'delhi', ty: 'battle', f: ['eic', 'maratha', 'mughal'], pv: true, title: 'Battle of Delhi',
-    sum: 'Across the Yamuna from Delhi, Lake\'s army defeats Scindia\'s French-officered battalions under Louis Bourquien. Five days later Lake is received by Shah Alam, blind, aged and destitute, in the Red Fort. The emperor in whose name the Company has collected Bengal\'s revenues since 1765 is now its pensioner.',
-    out: 'The Company takes custody of the Mughal Emperor, and with him the ultimate source of legitimacy in India.',
+    sum: "Across the Yamuna from Delhi, Lake defeats Scindia's French-officered battalions. Five days later he is received by Shah Alam, blind, old and poor, in the Red Fort. The emperor in whose name the Company has taxed Bengal since 1765 is now its pensioner.",
+    out: "The Company takes custody of the Mughal emperor, the ultimate source of legitimacy in India.",
     lead: [['Gerard Lake', 'Company Commander-in-Chief', 'eic'], ['Louis Bourquien', "Scindia's commander", 'maratha'], ['Shah Alam II', 'Mughal Emperor', 'mughal']],
     forces: [{ f: 'eic', who: 'General Gerard Lake', n: 4500, label: 'c. 4,500' }, { f: 'maratha', who: "Louis Bourquien (Scindia's army)", n: 19000, label: 'c. 19,000 (est.)' }],
     moves: [{ f: 'eic', path: ['aligarh', [77.7, 28.35], 'delhi'], kind: 'march', label: 'Lake', unit: 'sepoy' }] },
 
   { d: '1803-09-23', p: 'assaye', ty: 'battle', f: ['eic', 'maratha'], pv: true, title: 'Battle of Assaye',
-    sum: 'Arthur Wellesley finds the combined armies of Scindia and the Bhonsle Raja of Nagpur where two rivers meet. He crosses an unguarded ford and attacks at once. The Maratha regular infantry and gunners fight with great discipline, but the line breaks after hours of close-range carnage. Wellesley, the future Duke of Wellington, later called it the bloodiest battle for its size he ever saw.',
-    out: 'Company casualties exceed 1,500, but Maratha military power in the Deccan is broken.',
+    sum: "Arthur Wellesley finds the armies of Scindia and the Bhonsle where two rivers meet, crosses an unguarded ford and attacks at once. The Maratha infantry and gunners fight hard, but their line breaks after hours of close-range slaughter. Wellesley later called it the bloodiest battle for its size he ever saw.",
+    out: "Company losses exceed 1,500, but Maratha power in the Deccan is broken.",
     lead: [['Arthur Wellesley', 'Major-General', 'eic'], ['Daulat Rao Scindia', 'Maratha chief', 'maratha'], ['Raghuji II Bhonsle', 'Raja of Nagpur', 'maratha']],
     forces: [{ f: 'eic', who: 'Major-General Arthur Wellesley', n: 9500, label: 'c. 9,500', detail: 'about 7,000 actually engaged' }, { f: 'maratha', who: 'Daulat Rao Scindia & Raghuji II Bhonsle', n: 45000, label: 'c. 40,000–50,000', detail: 'including c. 10,000 European-trained infantry and 100+ guns' }],
     moves: [{ f: 'eic', path: ['ahmednagar', [75.4, 19.6], 'assaye'], kind: 'march', label: 'Wellesley', unit: 'sepoy' }, { f: 'maratha', path: ['burhanpur', [76.1, 20.9], 'assaye'], kind: 'march', label: 'Scindia & Bhonsle', unit: 'sepoy' }] },
@@ -682,15 +682,15 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['assaye', [76.5, 20.8], 'argaon'], kind: 'march', label: 'Wellesley', unit: 'sepoy' }] },
 
   { d: '1803-12-30', p: 'surji', ty: 'treaty', f: ['eic', 'maratha', 'mughal'], pv: true, title: 'The Company Paramount',
-    sum: 'By the treaties of Deogaon with the Bhonsle and Surji-Anjangaon with Scindia, the Company annexes Orissa, the Doab, Delhi and Agra, Broach and Ahmednagar. Some sixty years after Nadir Shah sacked Delhi, a London trading corporation with a private army of around 200,000 men, about twice the size of the British Army, rules or controls most of India south of the Sutlej.',
-    out: 'The Company is now the paramount power, yet much of India is still ruled by princes bound to it by treaty. The conquest goes on for another half-century.' },
+    sum: "By the treaties of Deogaon and Surji-Anjangaon, the Bhonsle and Scindia cede Orissa, the Doab, Delhi and Agra, Broach and Ahmednagar. Some sixty years after Nadir Shah sacked Delhi, a London trading company with an army of about 200,000 men rules or controls most of India south of the Sutlej.",
+    out: "Many princes still rule under Company treaties. The conquest goes on for another half-century." },
 
   /* ── Epilogue: the road to the Raj ── */
   { d: '1806-11-19', p: 'delhi', ty: 'political', f: ['mughal', 'eic'], ep: 1, title: 'Death of Shah Alam II',
     sum: 'Shah Alam dies aged 78, a pensioner of the Company in the Red Fort. His son Akbar II inherits the title of emperor but no empire. The Company goes on striking its coins in the Mughal emperor\'s name until 1835.' },
 
-  { d: '1818-06-03', p: 'poona', ty: 'treaty', f: ['eic', 'maratha'], ep: 1, title: 'The end of the Peshwas',
-    sum: 'In the Third Anglo-Maratha War the Company crushes the last independent Maratha armies at Khadki, Koregaon and Mahidpur. Baji Rao II surrenders and is pensioned off to Bithur near Cawnpore, and the office of Peshwa is abolished. Holkar, Scindia, the Bhonsle and the Rajput kings become British protectorates.',
+  { d: '1818-06-03', p: 'poona', ty: 'treaty', f: ['eic', 'maratha'], ep: 1, title: "End of the Peshwas",
+    sum: "The Company crushes the last Maratha armies at Khadki, Koregaon and Mahidpur. Baji Rao II surrenders and is pensioned off to Bithur near Cawnpore, and the office of Peshwa is abolished. Holkar, Scindia, the Bhonsle and the Rajput kings become British protectorates.",
     moves: [{ f: 'eic', path: ['bombay', [73.3, 18.75], 'poona'], kind: 'march', unit: 'sepoy', label: 'Company army' }, { f: 'maratha', path: ['poona', 'burhanpur', 'kalpi', 'kanpur'], kind: 'retreat', unit: 'royal', label: 'Baji Rao II into exile' }] },
 
   { d: '1826-02-24', p: [91.75, 26.18], pname: 'Assam', ty: 'treaty', f: ['eic'], ep: 1, title: 'Assam annexed',
@@ -701,20 +701,20 @@ const EVENTS_RAW = [
     moves: [{ f: 'eic', path: ['karachi', [67.9, 25.0], 'miani'], kind: 'march', unit: 'sepoy', label: 'Napier' }] },
 
   { d: '1849-03-29', p: 'lahore', ty: 'treaty', f: ['eic'], ep: 1, title: 'Annexation of the Punjab',
-    sum: 'After two hard-fought wars with the Sikh Empire built by Ranjit Singh, Lord Dalhousie annexes the Punjab. The boy Maharaja Duleep Singh is sent into exile, and the Koh-i-Noor, carried off from Delhi by Nadir Shah in 1739, is presented to Queen Victoria.',
+    sum: "After two hard wars with the Sikh Empire built by Ranjit Singh, Dalhousie annexes the Punjab. The boy Maharaja Duleep Singh is exiled, and the Koh-i-Noor, taken from Delhi by Nadir Shah in 1739, goes to Queen Victoria.",
     moves: [{ f: 'eic', path: ['delhi', 'karnal', 'sirhind', 'lahore'], kind: 'march', unit: 'army', label: 'Army of the Punjab' }] },
 
   { d: '1856-02-13', p: 'lucknow', ty: 'policy', f: ['eic', 'awadh'], ep: 1, title: 'Annexation of Awadh',
-    sum: 'Dalhousie deposes Wajid Ali Shah, the last Nawab of Awadh, citing misgovernment. Coming after the seizure of Satara, Jhansi and Nagpur under the "doctrine of lapse", it alarms India\'s princes and the Bengal army\'s sepoys, many of whom are recruited from Awadh.' },
+    sum: "Dalhousie deposes Wajid Ali Shah, the last Nawab of Awadh, for misgovernment. Coming after the seizure of Satara, Jhansi and Nagpur under the \"doctrine of lapse\", it alarms the princes and the Bengal army's sepoys, many of them from Awadh." },
 
   { d: '1857-05-11', p: 'delhi', ty: 'battle', f: ['eic', 'mughal'], ep: 1, pv: true, title: 'The Uprising of 1857',
-    sum: 'Sepoys at Meerut mutiny and ride to Delhi, where they proclaim the aged Bahadur Shah Zafar emperor of Hindustan. The revolt spreads across the north, to Cawnpore, Lucknow and Jhansi. After a long siege the British storm Delhi in September and take a terrible revenge. Bahadur Shah is tried and exiled to Rangoon.',
-    out: 'The last Mughal emperor is deposed, and Company rule is discredited beyond repair.',
+    sum: "Sepoys at Meerut mutiny and ride to Delhi, where they proclaim the aged Bahadur Shah Zafar emperor. The revolt spreads to Cawnpore, Lucknow and Jhansi. The British storm Delhi in September and take a terrible revenge; Bahadur Shah is exiled to Rangoon.",
+    out: "The last Mughal is deposed, and Company rule is discredited.",
     moves: [{ f: 'mughal', path: ['meerut', [77.45, 28.85], 'delhi'], kind: 'march', unit: 'sepoy', label: 'Meerut sepoys' }, { f: 'eic', path: ['sirhind', 'karnal', 'panipat', 'delhi'], kind: 'march', unit: 'army', label: 'Delhi Field Force' }] },
 
   { d: '1858-11-01', p: 'allahabad', ty: 'policy', f: ['crown', 'eic'], ep: 1, pv: true, title: 'The British Raj',
-    sum: 'At Allahabad, where Clive received the Diwani in 1765, Lord Canning reads Queen Victoria\'s proclamation. Under the Government of India Act the Company\'s territories, army and officials pass to the Crown, and Canning becomes the first Viceroy. The Company itself lingers on in London until it is wound up in 1874.',
-    out: 'Here the Company\'s story ends and the British Raj begins.' },
+    sum: "At Allahabad, where Clive received the Diwani in 1765, Lord Canning reads Queen Victoria's proclamation. The Government of India Act hands the Company's territories, army and officials to the Crown, and Canning becomes the first Viceroy. The Company is wound up in 1874.",
+    out: "Here the Company's story ends and the British Raj begins." },
 ];
 
 const TYPE_META = {
@@ -750,7 +750,7 @@ const COMP = { european: ['European infantry', 'sepoy'], sepoy: ['sepoys', 'sepo
 const FORCE_COMP = {
   '1742-04-15:maratha': { cavalry: 25000 },
   '1746-09-21:french': { ships: 9 },
-  '1746-11-03:french': { european: 300, sepoy: 700 },
+  '1746-10-24:french': { european: 300, sepoy: 700 },
   '1751-02-13:french': { european: 300, sepoy: 2000 },
   '1751-09-01:eic': { european: 200, sepoy: 300, guns: 3 },
   '1756-10-16:eic': { european: 900, sepoy: 1500 },
@@ -761,7 +761,7 @@ const FORCE_COMP = {
   '1761-01-14:afghan': { heavy: 42000, foot: 38000 },
   '1761-01-14:maratha': { cavalry: 35000, sepoy: 9000, guns: 200 },
   '1764-10-22:eic': { european: 857, sepoy: 5297, cavalry: 918 },
-  '1769-04-04:mysore': { cavalry: 6000 },
+  '1769-03-29:mysore': { cavalry: 6000 },
   '1798-10-22:french': { sepoy: 14000 },
   '1803-09-23:maratha': { sepoy: 10000, guns: 100 },
   '1803-11-01:maratha': { sepoy: 9000, cavalry: 5000, guns: 72 },
@@ -1053,10 +1053,11 @@ const GRAIN = `url("data:image/svg+xml;utf8,${encodeURIComponent("<svg xmlns='ht
 const MOTTLE = `url("data:image/svg+xml;utf8,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.006' numOctaves='4' seed='7'/><feColorMatrix values='0 0 0 0 .55  0 0 0 0 .42  0 0 0 0 .25  0 0 0 .9 -.32'/></filter><rect width='100%' height='100%' filter='url(%23m)'/></svg>")}")`;
 
 const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
 .atlas{--paper:#F7F3EA;--paper-2:#EFE7D6;--ink:#3a3026;--ink-2:#6e604f;--rule:#cbbd9f;--sea:#8fa6b3;--accent:#8a3b22;
-  font-family:'EB Garamond','Iowan Old Style',Georgia,serif;color:var(--ink);background:var(--paper)}
-.atlas .display{font-family:'Cormorant Garamond','EB Garamond',Georgia,serif}
+  font-family:'Libre Caslon Text','Big Caslon','Iowan Old Style',Georgia,serif;color:var(--ink);background:var(--paper)}
+.atlas .display{font-family:'Libre Caslon Text','Big Caslon',Georgia,serif}
+.atlas .headline{font-family:'Libre Caslon Display','Big Caslon','Libre Caslon Text',Georgia,serif;font-weight:400}
 .atlas .sc{font-variant:small-caps;letter-spacing:.09em}
 .atlas .caps{text-transform:uppercase;letter-spacing:.16em}
 .atlas .num{font-variant-numeric:tabular-nums lining-nums}
@@ -1149,7 +1150,7 @@ const Labels = memo(function Labels({ zk }) {
         if (!r || !r.c || (info.small && z < 1.25)) return null;
         const fs = (info.small ? 7.5 : 10.5) / Math.pow(z, 0.75);
         return (
-          <text key={id} x={r.c[0]} y={r.c[1]} textAnchor="middle" fontSize={fs} fontWeight={600} fill="#3e3127" opacity={0.6}
+          <text key={id} x={r.c[0]} y={r.c[1]} textAnchor="middle" fontSize={fs} fill="#3e3127" opacity={0.68}
             letterSpacing="0.22em" style={{ paintOrder: 'stroke', stroke: 'rgba(247,243,234,.55)', strokeWidth: 2.2 / z }}>
             {info.name.toUpperCase()}
           </text>
@@ -1220,7 +1221,7 @@ function EventMarker({ ev, z, onClick }) {
       <circle r={13.5} fill="#FBF8F1" stroke={ink} strokeWidth={1.6} />
       <circle r={10.8} fill="none" stroke={ink} strokeWidth={0.5} strokeOpacity={0.6} />
       <Icon x={-8} y={-8} width={16} height={16} color={ink} strokeWidth={1.9} />
-      <text y={30} textAnchor="middle" className="display" fontSize={13} fontWeight={700} fill="#2f251c"
+      <text y={30} textAnchor="middle" className="display" fontSize={12} fontWeight={700} fill="#2f251c"
         style={{ paintOrder: 'stroke', stroke: '#F7F3EA', strokeWidth: 4, strokeLinejoin: 'round' }} letterSpacing="0.06em">
         {ev.title}
       </text>
@@ -1285,7 +1286,7 @@ function MoveLine({ mv, p, z, faded }) {
       <g transform={`translate(${part.head[0]} ${part.head[1]}) scale(${1 / z})`} opacity={retreat ? 0.8 : 1}>
         <UnitHead unit={unit} c={c} angle={part.angle} />
         {mv.label && p > 0.04 && (
-          <text x={0} y={-16} textAnchor="middle" fontSize={10.5} fontStyle="italic" fill={c.ink} className="display" fontWeight={600}
+          <text x={0} y={-16} textAnchor="middle" fontSize={10.5} fontStyle="italic" fill={c.ink} className="display"
             style={{ paintOrder: 'stroke', stroke: '#F7F3EA', strokeWidth: 3.5, strokeLinejoin: 'round' }}>{mv.label}</text>
         )}
       </g>
@@ -1318,7 +1319,7 @@ function PaymentFlow({ pay, secs, z, idx }) {
       {grow >= 1 && (
         <g transform={`translate(${mid[0]} ${mid[1]}) scale(${1 / z})`}>
           <rect x={-pay.amt.length * 3.1 - 8} y={-21} width={pay.amt.length * 6.2 + 16} height={15} rx={7.5} fill="#fbf6e6" stroke="#a37c22" strokeWidth={0.9} />
-          <text y={-10.5} textAnchor="middle" fontSize={10} fontWeight={600} fill={c.ink} className="display num">{pay.amt}</text>
+          <text y={-10.5} textAnchor="middle" fontSize={10} fontWeight={700} fill={c.ink} className="display num">{pay.amt}</text>
         </g>
       )}
     </g>
@@ -1380,7 +1381,7 @@ function FactionChip({ f }) {
 }
 function SectionTitle({ children, icon: Icon }) {
   return (
-    <div className="mb-2 mt-5 flex items-center gap-2 border-b border-[#d9ccb2] pb-1 text-[11px] font-semibold text-[#7a6650] caps">
+    <div className="mb-2 mt-5 flex items-center gap-2 border-b border-[#d9ccb2] pb-1 text-[11px] font-bold text-[#7a6650] caps">
       {Icon && <Icon size={13} strokeWidth={1.8} />}{children}
     </div>
   );
@@ -1396,7 +1397,7 @@ function ForcesBlock({ forces }) {
           <div key={i}>
             <div className="flex items-baseline justify-between gap-3">
               <div className="flex min-w-0 items-center gap-2 text-[14px] font-medium text-[#2f251c]">{portraitKey(x.who) ? <Cameo name={x.who} size={22} ring={c.ink} /> : <FactionDot f={x.f} />}<span className="truncate">{x.who}</span></div>
-              <div className="shrink-0 num text-[14px] font-semibold" style={{ color: c.ink }}>{x.label}</div>
+              <div className="shrink-0 num text-[14px] font-bold" style={{ color: c.ink }}>{x.label}</div>
             </div>
             <div className="mt-1 h-[7px] w-full rounded-full bg-[#ece3d0]">
               <div className="h-full rounded-full transition-all duration-700" style={{ width: `${Math.max(2, ((x.n || 0) / max) * 100)}%`, background: c.color, boxShadow: `inset 0 0 0 1px ${c.ink}55` }} />
@@ -1445,7 +1446,7 @@ function MiniChart({ title, unit, data, x0, x1, yMin, yMax, yTicks, xTicks, year
   const tipX = hv ? clamp(X(hv.t), L + 44, W - R - 44) : 0;
   return (
     <figure className="mt-4">
-      <figcaption className="flex items-baseline justify-between"><span className="text-[10.5px] font-semibold text-[#7a6650] caps">{title}</span><span className="text-[11.5px] italic text-[#8a7862]">{unit}</span></figcaption>
+      <figcaption className="flex items-baseline justify-between"><span className="text-[10.5px] font-bold text-[#7a6650] caps">{title}</span><span className="text-[11.5px] italic text-[#8a7862]">{unit}</span></figcaption>
       <svg viewBox={`0 0 ${W} ${H}`} className="mt-1 block w-full touch-none" onPointerMove={onMove} onPointerLeave={() => setHv(null)} role="img" aria-label={`${title}, ${x0} to ${end}`}>
         {yTicks.map((v) => (
           <g key={v}>
@@ -1469,7 +1470,7 @@ function MiniChart({ title, unit, data, x0, x1, yMin, yMax, yTicks, xTicks, year
             <circle cx={X(hv.t)} cy={Y(hv.v)} r={3.5} fill="#34507a" stroke="#fbf8f1" strokeWidth={1.5} />
             <rect x={tipX - 42} y={1} width={84} height={28} rx={3} fill="#fbf8f1" stroke="#bfae8c" />
             <text x={tipX} y={12} textAnchor="middle" fontSize={9.5} fill="#7a6650" className="num">{Math.floor(hv.t)}</text>
-            <text x={tipX} y={25} textAnchor="middle" fontSize={11.5} fontWeight={600} fill="#2b2119" className="num">{fmt(hv.v)}</text>
+            <text x={tipX} y={25} textAnchor="middle" fontSize={11.5} fontWeight={700} fill="#2b2119" className="num">{fmt(hv.v)}</text>
           </g>
         )}
       </svg>
@@ -1492,7 +1493,7 @@ function LondonBox({ year, open, onToggle, maxH }) {
   }, [open, lastIdx]);
   return (
     <div className="flex flex-col rounded-md border border-[#cdbf9f] bg-[#fbf8f1]/95 shadow-sm" style={{ maxHeight: maxH }}>
-      <button onClick={onToggle} aria-expanded={open} className="flex w-full shrink-0 items-center justify-between gap-3 px-3 py-1.5 text-[11px] font-semibold text-[#6e5a44] caps">
+      <button onClick={onToggle} aria-expanded={open} className="flex w-full shrink-0 items-center justify-between gap-3 px-3 py-1.5 text-[11px] font-bold text-[#6e5a44] caps">
         <span className="flex items-center gap-1.5">
           <Landmark size={12} />London
           <span className="num text-[11.5px] font-normal normal-case tracking-normal text-[#8a7862]">· {Math.floor(year)}</span>
@@ -1507,13 +1508,13 @@ function LondonBox({ year, open, onToggle, maxH }) {
       )}
       {open && (
         <div ref={bodyRef} className="thin-scroll relative min-h-0 overflow-y-auto border-t border-[#e3d8c2] px-3 pb-3 pt-2">
-          <div className="text-[10.5px] font-semibold text-[#8a3b22] caps">Parliament & Leadenhall Street</div>
+          <div className="text-[10.5px] font-bold text-[#8a3b22] caps">Parliament & Leadenhall Street</div>
           <p className="mt-1 text-[13px] leading-snug text-[#4a3d30]">The Company was run from East India House by 24 directors elected by its shareholders. From 1767 Parliament took an ever larger hand in its affairs.</p>
           <div className="mt-2 grid grid-cols-3 gap-1.5">
             {[['Stock', stock ? `£${Math.round(stock)}` : '—', stock ? 'per £100' : 'to 1805'], ['Dividend', `${div}%`, 'a year'], ['Army', `${Math.round(army / 1000)}k`, 'men']].map(([l, v, sub]) => (
               <div key={l} className="min-w-0 rounded border border-[#e0d4bb] bg-[#fffdf7] px-2 py-1.5">
-                <div className="text-[9.5px] font-semibold text-[#8a7862] caps">{l}</div>
-                <div className="display num text-[20px] font-semibold leading-tight text-[#2b2119]">{v}</div>
+                <div className="text-[9.5px] font-bold text-[#8a7862] caps">{l}</div>
+                <div className="display num text-[20px] font-bold leading-tight text-[#2b2119]">{v}</div>
                 <div className="text-[10.5px] leading-tight text-[#8a7862]">{sub}</div>
               </div>
             ))}
@@ -1523,12 +1524,12 @@ function LondonBox({ year, open, onToggle, maxH }) {
           <MiniChart title="Company armies in India" unit="men under arms" data={ARMY} step x0={1739} x1={1858} yMin={0} yMax={300000} yTicks={[0, 100000, 200000, 300000]} xTicks={[1740, 1780, 1820, 1858]}
             year={year} fmt={(v) => Math.round(v).toLocaleString('en-GB')} tickFmt={(v) => (v ? `${v / 1000}k` : '0')} />
           <p className="mt-1.5 text-[11px] italic leading-snug text-[#8a7862]">Indicative figures, rounded from secondary sources. The shape of the stock series is well documented; individual values are approximate.</p>
-          <div className="mb-1.5 mt-3 border-b border-[#d9ccb2] pb-1 text-[10.5px] font-semibold text-[#7a6650] caps">Parliament & the Company</div>
+          <div className="mb-1.5 mt-3 border-b border-[#d9ccb2] pb-1 text-[10.5px] font-bold text-[#7a6650] caps">Parliament & the Company</div>
           <ol className="flex flex-col gap-1.5">
             {LONDON.map((x, i) => (
               <li key={i} data-current={i === lastIdx ? '1' : undefined}
                 className={`grid grid-cols-[54px_1fr] gap-1.5 rounded px-1 py-0.5 text-[12.5px] leading-snug ${i === lastIdx ? 'bg-[#efe6d3]' : ''} ${x.at > year ? 'text-[#a8977c]' : 'text-[#2f251c]'}`}>
-                <span className={`num pt-px text-[11px] italic ${i === lastIdx ? 'font-semibold text-[#8a3b22]' : 'text-[#8a7862]'}`}>{fmtMonth(x.at)}</span>
+                <span className={`num pt-px text-[11px] italic ${i === lastIdx ? 'font-bold text-[#8a3b22]' : 'text-[#8a7862]'}`}>{fmtMonth(x.at)}</span>
                 <span>{x.t}</span>
               </li>
             ))}
@@ -1547,7 +1548,7 @@ function LeadersList({ t, factions }) {
     <div className="flex flex-col gap-3">
       {groups.map(({ f, offices }) => (
         <div key={f} className="rounded-md border border-[#e0d4bb] bg-[#fbf8f1]/70 px-3 py-2">
-          <div className="mb-1 flex items-center gap-2 text-[12px] font-semibold text-[#5d4d3c] caps"><FactionDot f={f} size={9} />{FACTIONS[f].name}</div>
+          <div className="mb-1 flex items-center gap-2 text-[12px] font-bold text-[#5d4d3c] caps"><FactionDot f={f} size={9} />{FACTIONS[f].name}</div>
           {offices.map(({ o, hs }) => (
             <div key={o.title} className="mt-1.5">
               <div className="text-[11px] italic text-[#8a7862]">{o.title}</div>
@@ -1580,7 +1581,7 @@ function TerritoryShare({ t, vis }) {
     <div>
       <div className="mb-1 flex items-baseline justify-between text-[11px] text-[#7a6650] caps">
         <span>Share of the subcontinent</span>
-        <span className="num normal-case tracking-normal text-[13px] font-semibold" style={{ color: FACTIONS[raj ? 'crown' : 'eic'].ink }}>{raj ? 'British Raj' : 'Company'} {eicPct < 1 ? '<1' : eicPct}%</span>
+        <span className="num normal-case tracking-normal text-[13px] font-bold" style={{ color: FACTIONS[raj ? 'crown' : 'eic'].ink }}>{raj ? 'British Raj' : 'Company'} {eicPct < 1 ? '<1' : eicPct}%</span>
       </div>
       <div className="flex h-3 w-full overflow-hidden rounded-sm border border-[#d6c8aa]">
         {order.map((f) => (
@@ -1837,8 +1838,8 @@ export default function EICMap() {
       {/* HEADER */}
       <header className="relative z-20 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-[#d6c8aa] bg-[#f3ecdd] px-4 py-2.5 sm:px-6">
         <div className="min-w-0">
-          <div className="display flex items-baseline gap-3">
-            <h1 className="text-[24px] font-semibold leading-none tracking-[0.18em] text-[#2b2119] sm:text-[28px]">THE ANARCHY</h1>
+          <div className="flex items-baseline gap-3">
+            <h1 className="headline text-[24px] leading-none tracking-[0.18em] text-[#2b2119] sm:text-[28px]">THE ANARCHY</h1>
             <span className="hidden text-[15px] italic text-[#7a6650] md:inline">an atlas of the East India Company's rise, 1739–1803</span>
           </div>
           <div className="mt-0.5 text-[12px] text-[#8a7862]">After William Dalrymple, <i>The Anarchy: The Relentless Rise of the East India Company</i></div>
@@ -1962,7 +1963,7 @@ export default function EICMap() {
                   <circle r={pl.major ? 2.6 : 2} fill="#2f251c" />
                   <circle r={7} fill="transparent" data-place={pl.id} style={{ cursor: 'pointer' }} pointerEvents="auto" />
                   {!isActive && (pl.major === 2 || k >= 0.8) && (
-                    <text x={pl.left ? -5 : 5} y={3.4} textAnchor={pl.left ? 'end' : 'start'} fontSize={pl.major ? 10.5 : 9.5} className="display" fontWeight={600}
+                    <text x={pl.left ? -5 : 5} y={3.4} textAnchor={pl.left ? 'end' : 'start'} fontSize={pl.major ? 10 : 9} className="display"
                       fill="#2f251c" letterSpacing="0.06em" style={{ paintOrder: 'stroke', stroke: 'rgba(247,243,234,.85)', strokeWidth: 3, strokeLinejoin: 'round' }} pointerEvents="none">
                       {pl.name}
                     </text>
@@ -1984,7 +1985,7 @@ export default function EICMap() {
 
           {/* Cartouche */}
           <div className="pointer-events-none absolute right-3 top-3 text-right transition-opacity duration-500 sm:right-6 sm:top-5" style={{ marginRight: 'env(safe-area-inset-right, 0px)', opacity: showCallout && box.w < 1000 ? 0 : 1 }}>
-            <div className="display num text-[26px] font-medium leading-none tracking-[0.12em] text-[#2b2119] sm:text-[40px]">{year >= RAJ ? <>BRITISH INDIA, {Math.floor(year)}</> : <>HINDUSTAN, <span className="italic">c.</span> {Math.floor(year)}</>}</div>
+            <div className="headline num text-[26px] leading-none tracking-[0.1em] text-[#2b2119] sm:text-[40px]">{year >= RAJ ? <>BRITISH INDIA, {Math.floor(year)}</> : <>HINDUSTAN, <span className="italic">c.</span> {Math.floor(year)}</>}</div>
             <div className="ml-auto mt-2 h-px w-48 bg-[#9c8a6e] sm:w-80" />
             <div className="mt-1.5 text-[13px] text-[#5d4d3c] sm:text-[16px]"><span className="italic">{era.title}</span> <span className="hidden sm:inline">· {era.sub}</span></div>
           </div>
@@ -1995,8 +1996,8 @@ export default function EICMap() {
               <div className="relative rounded-[3px] border border-[#8f7b5c] bg-[#fbf8f1]/95 p-1 shadow-[0_10px_30px_-12px_rgba(60,40,20,.45)]">
                 <div className="rounded-[2px] border border-[#cdbd9c] px-4 pb-3.5 pt-3">
                   <button onClick={() => setClosedCallout(active.id)} className="absolute right-2.5 top-2.5 rounded p-1 text-[#8a7862] hover:bg-[#efe6d3]" aria-label="Close callout"><X size={15} /></button>
-                  <div className="flex items-center gap-2 text-[10.5px] font-semibold text-[#8a3b22] caps"><span>✦</span>Pivotal moment<span>✦</span></div>
-                  <div className="display mt-1 text-[27px] font-semibold leading-[1.05] text-[#2b2119] sm:text-[31px]" style={{ textWrap: 'balance' }}>{active.title}</div>
+                  <div className="flex items-center gap-2 text-[10.5px] font-bold text-[#8a3b22] caps"><span>✦</span>Pivotal moment<span>✦</span></div>
+                  <div className="headline mt-1 text-[27px] leading-[1.05] text-[#2b2119] sm:text-[31px]" style={{ textWrap: 'balance' }}>{active.title}</div>
                   <div className="mt-1 text-[14px] italic text-[#6e604f]">{fmtDate(active.d)}{active.pname ? ` · ${active.pname}` : ''}</div>
                   {(() => {
                     const faces = (active.lead || []).filter(([n]) => portraitKey(n)).slice(0, box.w >= 560 ? 4 : 3);
@@ -2043,7 +2044,7 @@ export default function EICMap() {
           {/* Legend */}
           <div className="absolute bottom-3 left-3 z-10 max-w-[calc(100%-80px)] sm:bottom-5 sm:left-5">
             <div className="rounded-md border border-[#cdbf9f] bg-[#fbf8f1]/95 shadow-sm">
-              <button onClick={() => setLegendOpen(!legendOpen)} className="flex w-full items-center justify-between gap-4 px-3 py-1.5 text-[11px] font-semibold text-[#6e5a44] caps">
+              <button onClick={() => setLegendOpen(!legendOpen)} className="flex w-full items-center justify-between gap-4 px-3 py-1.5 text-[11px] font-bold text-[#6e5a44] caps">
                 <span className="flex items-center gap-1.5"><Layers size={12} />Legend</span>{legendOpen ? <ChevronDown size={13} /> : <ChevronUp size={13} />}
               </button>
               {legendOpen && (
@@ -2057,13 +2058,13 @@ export default function EICMap() {
                     ))}
                   </div>
                   <div className="mt-2 hidden gap-x-4 gap-y-1 border-t border-[#e3d8c2] pt-2 text-[11.5px] text-[#5d4d3c] sm:grid sm:grid-cols-2">
-                    <span className="flex items-center gap-2"><svg width="16" height="12"><rect width="16" height="12" fill="#e6dcc8" /><path d="M-2,10 L6,-2 M3,14 L13,-2 M9,14 L19,0" stroke="#34507a" strokeWidth="1.2" strokeOpacity=".6" /></svg>Protectorate of</span>
+                    <span className="flex items-center gap-2"><svg width="16" height="12"><rect width="16" height="12" fill="#e6dcc8" /><path d="M-2,10 L6,-2 M3,14 L13,-2 M9,14 L19,0" stroke="#34507a" strokeWidth="1.2" strokeOpacity=".6" /></svg>Protectorate</span>
                     <span className="flex items-center gap-2"><svg width="18" height="10"><path d="M1,5 H17" stroke="#34507a" strokeWidth="1.8" strokeDasharray="5 3" /></svg>March</span>
                     <span className="flex items-center gap-2"><svg width="18" height="10"><path d="M1,5 H17" stroke="#34507a" strokeWidth="1.8" strokeDasharray="1.5 3" strokeLinecap="round" /></svg>Sea voyage</span>
                     <span className="flex items-center gap-2"><svg width="14" height="14"><circle cx="7" cy="7" r="4" fill="#7790b4" stroke="#34507a" /></svg>Past event</span>
                   </div>
                   <div className="mt-2 hidden border-t border-[#e3d8c2] pt-2 sm:block">
-                    <div className="mb-1 text-[10px] font-semibold text-[#8a7862] caps">On the move</div>
+                    <div className="mb-1 text-[10px] font-bold text-[#8a7862] caps">On the move</div>
                     <div className="grid grid-cols-2 gap-x-3 gap-y-0.5">
                       {Object.entries(UNITS).map(([u, m]) => (
                         <span key={u} className="flex items-center gap-1.5 text-[11.5px] text-[#4a3d30]" title={m.note}><GlyphSwatch unit={u} size={19} />{m.label}</span>
@@ -2081,14 +2082,14 @@ export default function EICMap() {
             if (hover.kind === 'region') {
               const s = states[hover.id]; const info2 = REGIONS[hover.id];
               body = (<>
-                <div className="display text-[16px] font-semibold leading-tight text-[#2b2119]">{info2.name}</div>
+                <div className="display text-[16px] font-bold leading-tight text-[#2b2119]">{info2.name}</div>
                 <div className="mt-0.5 flex items-center gap-1.5 text-[13px] text-[#3a3026]"><FactionDot f={s.f} size={8} />{s.note || FACTIONS[s.f].name}</div>
                 {s.over && <div className="mt-0.5 flex items-center gap-1.5 text-[12px] italic text-[#6e604f]"><FactionDot f={s.over} size={7} />under {FACTIONS[s.over].name}</div>}
               </>);
             } else {
               const pl = G.places[hover.id]; const n = G.events.filter((e) => e.p === hover.id).length;
               body = (<>
-                <div className="display text-[16px] font-semibold leading-tight text-[#2b2119]">{pl.name}</div>
+                <div className="display text-[16px] font-bold leading-tight text-[#2b2119]">{pl.name}</div>
                 <div className="text-[12px] italic text-[#6e604f]">{n ? `${n} event${n > 1 ? 's' : ''} here · click for details` : 'Click for details'}</div>
               </>);
             }
@@ -2108,7 +2109,7 @@ export default function EICMap() {
           <div className="flex items-center gap-1 border-b border-[#d9ccb2] px-3 pt-2">
             {[['event', 'Event', BookOpen], ['leaders', 'Leaders', Users], ['place', 'Place', MapIcon]].map(([k, label, I]) => (
               <button key={k} onClick={() => setTab(k)}
-                className={`-mb-px flex items-center gap-1.5 border-b-2 px-2.5 py-2 text-[13.5px] ${tab === k ? 'border-[#8a3b22] font-semibold text-[#2b2119]' : 'border-transparent text-[#7a6650] hover:text-[#3a3026]'}`}>
+                className={`-mb-px flex items-center gap-1.5 border-b-2 px-2.5 py-2 text-[13.5px] ${tab === k ? 'border-[#8a3b22] font-bold text-[#2b2119]' : 'border-transparent text-[#7a6650] hover:text-[#3a3026]'}`}>
                 <I size={14} />{label}
               </button>
             ))}
@@ -2118,9 +2119,9 @@ export default function EICMap() {
           <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-5 pb-6 pt-3">
             {tab === 'event' && (active ? (
               <div key={active.id} className="atl-fade">
-                <div className="text-[11px] font-semibold text-[#8a3b22] caps">{eraAt(active.t).title}</div>
+                <div className="text-[11px] font-bold text-[#8a3b22] caps">{eraAt(active.t).title}</div>
                 <div className="display mt-1 num text-[17px] italic text-[#6e604f]">{fmtDate(active.d)}{active.pname ? ` · ${active.pname}` : ''}</div>
-                <h2 className="display mt-0.5 text-[30px] font-semibold leading-[1.05] text-[#2b2119]" style={{ textWrap: 'balance' }}>{active.title}</h2>
+                <h2 className="headline mt-0.5 text-[30px] leading-[1.05] text-[#2b2119]" style={{ textWrap: 'balance' }}>{active.title}</h2>
                 <div className="mt-2 flex flex-wrap items-center gap-1.5">
                   <span className="inline-flex items-center gap-1 rounded-full bg-[#3a3026] px-2 py-0.5 text-[11.5px] text-[#f7f3ea]">
                     {React.createElement(TYPE_META[active.ty].icon, { size: 12 })}{TYPE_META[active.ty].label}
@@ -2141,7 +2142,7 @@ export default function EICMap() {
                       </li>
                     ))}
                   </ul>
-                  {active.lead.some(([n]) => portraitKey(n)) && <p className="mt-2 text-[11.5px] italic text-[#8a7862]">Portraits are public-domain works via Wikimedia Commons; hover one for the artist.</p>}
+                  {active.lead.some(([n]) => portraitKey(n)) && <p className="mt-2 text-[11.5px] italic text-[#8a7862]">Portraits: public-domain works via Wikimedia Commons. Hover for the artist.</p>}
                 </>)}
                 {active.pays.length > 0 && (<>
                   <SectionTitle icon={Coins}>Money changing hands</SectionTitle>
@@ -2149,7 +2150,7 @@ export default function EICMap() {
                     {active.pays.map((q, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-[14.5px] leading-snug">
                         <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border border-[#7a5a14] bg-[#e4c15a] text-[11px] font-bold text-[#5c420c]">{q.amt.includes('£') ? '£' : '₹'}</span>
-                        <span><span className="num font-semibold text-[#2b2119]">{q.amt}</span> <span className="text-[13px] text-[#7a6a57]">· {q.fromName} → {q.toName}</span><span className="block text-[13.5px] text-[#4a3d30]">{q.what}</span></span>
+                        <span><span className="num font-bold text-[#2b2119]">{q.amt}</span> <span className="text-[13px] text-[#7a6a57]">· {q.fromName} → {q.toName}</span><span className="block text-[13.5px] text-[#4a3d30]">{q.what}</span></span>
                       </li>
                     ))}
                   </ul>
@@ -2173,10 +2174,10 @@ export default function EICMap() {
               </div>
             ) : (
               <div className="atl-fade">
-                <div className="text-[11px] font-semibold text-[#8a3b22] caps">Prologue</div>
-                <h2 className="display mt-1 text-[30px] font-semibold leading-[1.05] text-[#2b2119]">India, 1739</h2>
-                <p className="mt-3 text-[16px] leading-[1.55] text-[#2f251c]">The Mughal Empire still rules, in name, from Kabul to Bengal. The English East India Company holds three fortified trading posts, at Bombay, Madras and Calcutta, and employs a few hundred European soldiers. Within sixty-five years it will rule most of the subcontinent.</p>
-                <p className="mt-3 text-[15px] italic leading-snug text-[#5d4d3c]">The atlas plays automatically. Pause at any moment, drag the timeline, or click a region, city or past event for details.</p>
+                <div className="text-[11px] font-bold text-[#8a3b22] caps">Prologue</div>
+                <h2 className="headline mt-1 text-[30px] leading-[1.05] text-[#2b2119]">India, 1739</h2>
+                <p className="mt-3 text-[16px] leading-[1.55] text-[#2f251c]">In name, the Mughal Empire still rules from Kabul to Bengal. The English East India Company holds three fortified trading posts, at Bombay, Madras and Calcutta, and a few hundred European soldiers. Within sixty-five years it will rule most of the subcontinent.</p>
+                <p className="mt-3 text-[15px] italic leading-snug text-[#5d4d3c]">The atlas plays by itself. Pause at any point, drag the timeline, or click a region, city or past event.</p>
                 <SectionTitle icon={Users}>Leaders in play, 1739</SectionTitle>
                 <LeadersList t={T0 + 0.01} factions={vis} />
               </div>
@@ -2184,8 +2185,8 @@ export default function EICMap() {
 
             {tab === 'leaders' && (
               <div className="atl-fade">
-                <div className="text-[11px] font-semibold text-[#8a3b22] caps">{era.title}</div>
-                <h2 className="display mt-1 text-[28px] font-semibold leading-tight text-[#2b2119]">Who ruled in {fmtMonth(year)}</h2>
+                <div className="text-[11px] font-bold text-[#8a3b22] caps">{era.title}</div>
+                <h2 className="headline mt-1 text-[28px] leading-tight text-[#2b2119]">Who ruled in {fmtMonth(year)}</h2>
                 {mode === 'single' && <p className="mt-2 text-[14.5px] leading-snug text-[#4a3d30]">{FACTIONS[focus].blurb}</p>}
                 <div className="mt-3"><LeadersList t={year} factions={vis} /></div>
               </div>
@@ -2197,11 +2198,11 @@ export default function EICMap() {
                 const here = G.events.filter((e) => e.region === selection.id);
                 return (
                   <div className="atl-fade">
-                    <div className="text-[11px] font-semibold text-[#8a3b22] caps">Region</div>
-                    <h2 className="display mt-1 text-[30px] font-semibold leading-tight text-[#2b2119]">{info2.name}</h2>
+                    <div className="text-[11px] font-bold text-[#8a3b22] caps">Region</div>
+                    <h2 className="headline mt-1 text-[30px] leading-tight text-[#2b2119]">{info2.name}</h2>
                     <div className="mt-2 flex items-center gap-2 text-[15px]"><FactionDot f={s.f} />{s.note || FACTIONS[s.f].name}</div>
                     {s.over && <div className="mt-1 flex items-center gap-2 text-[14px] italic text-[#6e604f]"><FactionDot f={s.over} size={8} />under the protection of the {FACTIONS[s.over].name}</div>}
-                    <SectionTitle>Changes of hand</SectionTitle>
+                    <SectionTitle>Who held it</SectionTitle>
                     <ol className="flex flex-col gap-1.5">
                       {info2.ctl.map((c, i) => (
                         <li key={i} className="flex items-start gap-3 text-[14.5px]">
@@ -2219,14 +2220,14 @@ export default function EICMap() {
               const pl = G.places[selection.id]; const here = G.events.filter((e) => e.p === selection.id);
               return (
                 <div className="atl-fade">
-                  <div className="text-[11px] font-semibold text-[#8a3b22] caps">City</div>
-                  <h2 className="display mt-1 text-[30px] font-semibold leading-tight text-[#2b2119]">{pl.name}</h2>
+                  <div className="text-[11px] font-bold text-[#8a3b22] caps">City</div>
+                  <h2 className="headline mt-1 text-[30px] leading-tight text-[#2b2119]">{pl.name}</h2>
                   <SectionTitle>Events here</SectionTitle>
-                  {here.length ? <EventLinks list={here} events={events} onSeek={seekEvent} year={year} /> : <p className="text-[14.5px] italic text-[#6e604f]">No events are recorded at this place in the atlas.</p>}
+                  {here.length ? <EventLinks list={here} events={events} onSeek={seekEvent} year={year} /> : <p className="text-[14.5px] italic text-[#6e604f]">Nothing in the atlas happens here.</p>}
                 </div>
               );
             })() : (
-              <p className="mt-4 text-[15px] italic text-[#6e604f]">Click any region or city on the map to see who held it, how it changed hands, and what happened there.</p>
+              <p className="mt-4 text-[15px] italic text-[#6e604f]">Click a region or city to see who held it and what happened there.</p>
             ))}
           </div>
 
@@ -2244,7 +2245,7 @@ export default function EICMap() {
             </button>
             <button onClick={goNext} className="grid h-9 w-9 place-items-center rounded-md text-[#3a3026] hover:bg-[#e9dfca]" aria-label="Next event" title="Next event (→)"><SkipForward size={17} /></button>
           </div>
-          <div className="display num min-w-[132px] text-[22px] font-semibold leading-none text-[#2b2119]">
+          <div className="display num min-w-[132px] text-[22px] font-bold leading-none text-[#2b2119]">
             {active && info.phase === 'dwell' ? fmtDate(active.d).replace(/^(\d+) (\w{3})\w*/, '$1 $2') : fmtMonth(year)}
           </div>
           <div className="hidden min-w-0 flex-1 truncate text-[14px] italic text-[#6e604f] md:block">{active ? active.title : 'Prologue'}</div>
