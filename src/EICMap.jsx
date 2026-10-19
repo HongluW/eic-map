@@ -166,12 +166,40 @@ const REGIONS = {
 };
 const SUBCONTINENT_EXCLUDE = new Set(['afghanistan', 'persia']);
 
+/* Nominal allegiance to the Mughal emperor. The colour shows who actually governed; these periods add
+   gold dots where that ruler still held office as the emperor's governor or paid him tribute.
+   [from, to, note] */
+const MUGHAL_ALLEGIANCE = {
+  bengal:     [[1739, 1765.62, 'Nawab rules as the Mughal governor of Bengal'], [1765.62, 1772.3, 'Company rules as the Mughal diwan, paying tribute to Shah Alam']],
+  bihar:      [[1739, 1765.62, 'Part of the Nawab of Bengal\'s Mughal province'], [1765.62, 1772.3, 'Company rules as the Mughal diwan, paying tribute to Shah Alam']],
+  burdwan:    [[1739, 1772.3, 'Part of the Mughal province of Bengal']],
+  chittagong: [[1739, 1772.3, 'Part of the Mughal province of Bengal']],
+  calcutta:   [[1739, 1772.3, 'Part of the Mughal province of Bengal']],
+  orissa:     [[1739, 1751.37, 'Part of the Nawab of Bengal\'s Mughal province']],
+  awadh:      [[1739, 1819.8, 'The Nawab is Wazir of the Mughal Empire, until he crowns himself King of Awadh in 1819']],
+  allahabad:  [[1748, 1765.62, 'Held by the Nawab-Wazir of Awadh'], [1773.69, 1801.86, 'Held by the Nawab-Wazir of Awadh']],
+  benares:    [[1739, 1775.4, 'Held by the Nawab-Wazir of Awadh']],
+  rohilkhand: [[1774.31, 1801.86, 'Held by the Nawab-Wazir of Awadh']],
+  doab:       [[1774.3, 1801.86, 'Held by the Nawab-Wazir of Awadh']],
+  hyderabad:  [[1739, 1858, 'The Nizam rules as the Mughal viceroy of the Deccan and strikes coins in the emperor\'s name']],
+  circars:    [[1739, 1753.92, 'Part of the Nizam\'s Mughal Deccan'], [1759.27, 1766.86, 'Part of the Nizam\'s Mughal Deccan']],
+  ceded:      [[1739, 1779, 'Part of the Nizam\'s Mughal Deccan'], [1792.21, 1800.78, 'Part of the Nizam\'s Mughal Deccan']],
+  carnatic:   [[1739, 1801.58, 'The Nawab of Arcot is a Mughal governor under the Nizam']],
+  jagir:      [[1739, 1763.5, 'The Nawab of Arcot is a Mughal governor under the Nizam']],
+  sindh:      [[1739, 1739.37, 'Kalhora rulers pay tribute to Delhi']],
+};
+function allegianceAt(id, t) {
+  const hit = (MUGHAL_ALLEGIANCE[id] || []).find(([a, b]) => t >= a && t < b);
+  return hit ? hit[2] : null;
+}
+
 function regionState(id, t) {
   const ctl = REGIONS[id].ctl;
   let e = ctl[0];
   for (const c of ctl) if (c[0] <= t) e = c; else break;
   const raj = (f) => (t >= RAJ && f === 'eic' ? 'crown' : f);
-  return { f: raj(e[1]), over: e[2] ? raj(e[2]) : null, note: t >= RAJ && e[1] === 'eic' ? 'British India, under the Crown' : e[3] || null, since: e[0] };
+  const f = raj(e[1]);
+  return { f, over: e[2] ? raj(e[2]) : null, note: t >= RAJ && e[1] === 'eic' ? 'British India, under the Crown' : e[3] || null, since: e[0], mughal: f === 'mughal' ? null : allegianceAt(id, t) };
 }
 function enclaveState(id, t) {
   const ctl = ENCLAVES[id][3];
@@ -1181,6 +1209,9 @@ const Territories = memo(function Territories({ stateKey, visKey, u }) {
             {st.over && vis.includes(st.over) && (
               <path d={r.d} fill={`url(#hatch-${st.over})`} pointerEvents="none" className="atl-fade" />
             )}
+            {st.mughal && (vis.includes('mughal') || vis.includes(st.f)) && (
+              <path d={r.d} fill="url(#allegiance-mughal)" pointerEvents="none" className="atl-fade" />
+            )}
           </g>
         );
       })}
@@ -1879,6 +1910,10 @@ export default function EICMap() {
                   <line x1="0" y1="0" x2="0" y2="5.5" stroke={c.ink} strokeWidth="1.15" strokeOpacity=".5" />
                 </pattern>
               ))}
+              <pattern id="allegiance-mughal" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform={`scale(${u})`}>
+                <circle cx="1.75" cy="1.75" r="1.05" fill={FACTIONS.mughal.ink} fillOpacity=".7" />
+                <circle cx="5.25" cy="5.25" r="1.05" fill={FACTIONS.mughal.ink} fillOpacity=".7" />
+              </pattern>
               {[['l', 0, 0, 1, 0], ['r', 1, 0, 0, 0], ['t', 0, 0, 0, 1], ['b', 0, 1, 0, 0]].map(([id, x1, y1, x2, y2]) => (
                 <linearGradient key={id} id={`mist-${id}`} x1={x1} y1={y1} x2={x2} y2={y2}>
                   <stop offset="0" stopColor={PAPER} stopOpacity="1" /><stop offset=".45" stopColor={PAPER} stopOpacity=".7" /><stop offset="1" stopColor={PAPER} stopOpacity="0" />
@@ -2060,6 +2095,7 @@ export default function EICMap() {
                   </div>
                   <div className="mt-2 hidden gap-x-4 gap-y-1 border-t border-[#e3d8c2] pt-2 text-[11.5px] text-[#5d4d3c] sm:grid sm:grid-cols-2">
                     <span className="flex items-center gap-2"><svg width="16" height="12"><rect width="16" height="12" fill="#e6dcc8" /><path d="M-2,10 L6,-2 M3,14 L13,-2 M9,14 L19,0" stroke="#34507a" strokeWidth="1.2" strokeOpacity=".6" /></svg>Protectorate</span>
+                    <span className="flex items-center gap-2" title="The local ruler still governs in the Mughal emperor's name or pays him tribute"><svg width="16" height="12"><rect width="16" height="12" fill="#e6dcc8" />{[[2, 2], [7, 7], [12, 2], [2, 12], [12, 12]].map(([x, y]) => <circle key={`${x}${y}`} cx={x} cy={y} r="1.2" fill="#86621c" fillOpacity=".75" />)}</svg>Mughal allegiance</span>
                     <span className="flex items-center gap-2"><svg width="18" height="10"><path d="M1,5 H17" stroke="#34507a" strokeWidth="1.8" strokeDasharray="5 3" /></svg>March</span>
                     <span className="flex items-center gap-2"><svg width="18" height="10"><path d="M1,5 H17" stroke="#34507a" strokeWidth="1.8" strokeDasharray="1.5 3" strokeLinecap="round" /></svg>Sea voyage</span>
                     <span className="flex items-center gap-2"><svg width="14" height="14"><circle cx="7" cy="7" r="4" fill="#7790b4" stroke="#34507a" /></svg>Past event</span>
@@ -2086,6 +2122,7 @@ export default function EICMap() {
                 <div className="display text-[16px] font-bold leading-tight text-[#2b2119]">{info2.name}</div>
                 <div className="mt-0.5 flex items-center gap-1.5 text-[13px] text-[#3a3026]"><FactionDot f={s.f} size={8} />{s.note || FACTIONS[s.f].name}</div>
                 {s.over && <div className="mt-0.5 flex items-center gap-1.5 text-[12px] italic text-[#6e604f]"><FactionDot f={s.over} size={7} />under {FACTIONS[s.over].name}</div>}
+                {s.mughal && <div className="mt-0.5 flex items-center gap-1.5 text-[12px] italic text-[#6e604f]"><FactionDot f="mughal" size={7} />owes allegiance to the Mughal emperor</div>}
               </>);
             } else {
               const pl = G.places[hover.id]; const n = G.events.filter((e) => e.p === hover.id).length;
@@ -2205,6 +2242,7 @@ export default function EICMap() {
                     <h2 className="headline mt-1 text-[30px] leading-tight text-[#2b2119]">{info2.name}</h2>
                     <div className="mt-2 flex items-center gap-2 text-[15px]"><FactionDot f={s.f} />{s.note || FACTIONS[s.f].name}</div>
                     {s.over && <div className="mt-1 flex items-center gap-2 text-[14px] italic text-[#6e604f]"><FactionDot f={s.over} size={8} />under the protection of the {FACTIONS[s.over].name}</div>}
+                    {s.mughal && <div className="mt-1 flex items-start gap-2 text-[14px] italic text-[#6e604f]"><span className="mt-1.5"><FactionDot f="mughal" size={8} /></span>{s.mughal}</div>}
                     <SectionTitle>Who held it</SectionTitle>
                     <ol className="flex flex-col gap-1.5">
                       {info2.ctl.map((c, i) => (
