@@ -22,4 +22,5 @@ npm run dev
 ```
 
 - `npm run build:single` builds a single self-contained HTML file in `dist-single/`.
+- `npm run portraits` re-embeds the portrait thumbnails in `assets/portraits/` (public-domain works via Wikimedia Commons; artists in `credits.json`).
 - `npm run geo` regenerates the embedded map data (Natural Earth 1:50m coastline and the historic regions) at the bottom of `src/EICMap.jsx`.
