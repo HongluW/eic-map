@@ -1868,7 +1868,6 @@ export default function EICMap() {
       <div className="relative flex min-h-0 flex-1">
         {/* MAP */}
         <div ref={mapBoxRef} className="paper-bg relative min-w-0 flex-1 overflow-hidden" onPointerLeave={() => setHover(null)}>
-          <div className="mottle pointer-events-none absolute inset-0" />
           <div ref={stageRef} className="absolute inset-0 touch-none select-none" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp}
             onPointerLeave={() => { if (!S.current.drag) setHover(null); }}>
           {/* Static layer: land, territories, relief, borders and mist. Moved with a CSS transform so panning never repaints it. */}
@@ -1981,6 +1980,7 @@ export default function EICMap() {
             {active && <EventMarker ev={active} z={k} onClick={() => { setTab('event'); setSheetOpen(true); }} />}
           </svg>
           </div>
+          <div className="mottle pointer-events-none absolute inset-0" />
           <div className="mist pointer-events-none absolute inset-0" />
           <div className="grain pointer-events-none absolute inset-0" />
 
@@ -2100,13 +2100,15 @@ export default function EICMap() {
           })()}
 
           {/* Mobile: open panel */}
-          <button onClick={() => setSheetOpen(true)} className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-[#3a3026] bg-[#3a3026] px-4 py-1.5 text-[13px] text-[#f7f3ea] shadow-md lg:hidden">
+          {!sheetOpen && (
+            <button onClick={() => setSheetOpen(true)} className="absolute bottom-3 left-1/2 z-10 -translate-x-1/2 rounded-full border border-[#3a3026] bg-[#3a3026] px-4 py-1.5 text-[13px] text-[#f7f3ea] shadow-md hover:bg-[#2b2119]" aria-label="Open details panel">
             <span className="flex items-center gap-1.5"><BookOpen size={14} />Details</span>
           </button>
+          )}
         </div>
 
         {/* SIDE PANEL */}
-        <aside className={`thin-scroll z-20 flex flex-col border-l border-[#d6c8aa] bg-[#f6f0e3] lg:static lg:flex lg:w-[390px] lg:translate-y-0 ${sheetOpen ? 'absolute inset-x-0 bottom-0 top-[18%] translate-y-0 rounded-t-xl shadow-[0_-12px_30px_-10px_rgba(50,35,20,.35)]' : 'absolute inset-x-0 bottom-0 top-[18%] translate-y-[110%]'} transition-transform duration-300`}>
+        <aside className={`thin-scroll z-20 flex flex-col border-l border-[#d6c8aa] bg-[#f6f0e3] lg:static lg:w-[390px] lg:translate-y-0 lg:rounded-none lg:shadow-none ${sheetOpen ? 'lg:flex' : 'lg:hidden'} ${sheetOpen ? 'absolute inset-x-0 bottom-0 top-[18%] translate-y-0 rounded-t-xl shadow-[0_-12px_30px_-10px_rgba(50,35,20,.35)]' : 'absolute inset-x-0 bottom-0 top-[18%] translate-y-[110%]'} transition-transform duration-300`}>
           <div className="flex items-center gap-1 border-b border-[#d9ccb2] px-3 pt-2">
             {[['event', 'Event', BookOpen], ['leaders', 'Leaders', Users], ['place', 'Place', MapIcon]].map(([k, label, I]) => (
               <button key={k} onClick={() => setTab(k)}
@@ -2114,7 +2116,7 @@ export default function EICMap() {
                 <I size={14} />{label}
               </button>
             ))}
-            <button onClick={() => setSheetOpen(false)} className="ml-auto rounded p-1.5 text-[#7a6650] hover:bg-[#efe6d3] lg:hidden" aria-label="Close panel"><X size={16} /></button>
+            <button onClick={() => setSheetOpen(false)} className="ml-auto rounded p-1.5 text-[#7a6650] hover:bg-[#efe6d3]" aria-label="Close panel" title="Fold the panel"><X size={16} /></button>
           </div>
 
           <div className="thin-scroll min-h-0 flex-1 overflow-y-auto px-5 pb-6 pt-3">
