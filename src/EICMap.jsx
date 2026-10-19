@@ -33,6 +33,13 @@ const FACTIONS = {
 const MAIN = ['eic', 'mughal', 'maratha', 'bengal'];
 const ALL_FORCES = ['eic', 'mughal', 'maratha', 'afghan', 'french', 'bengal', 'hyderabad', 'mysore', 'awadh'];
 const MUTED = '#e6dcc8';
+const LAND = '#ece3cf';
+/* Mix a colour onto the land tint so territory fills can be fully opaque (no overlap shimmer while zooming). */
+function onLand(hex, a) {
+  const p = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+  const [r, g, b] = p(hex), [lr, lg, lb] = p(LAND);
+  return '#' + [r * a + lr * (1 - a), g * a + lg * (1 - a), b * a + lb * (1 - a)].map((v) => Math.round(v).toString(16).padStart(2, '0')).join('');
+}
 const PAPER = '#F1EADB'; // map ground; the edge mist fades into this
 const RAJ = 1858.83; // Queen Victoria's Proclamation, 1 November 1858: Company territory passes to the Crown
 
@@ -1092,7 +1099,7 @@ const SeaAndLand = memo(function SeaAndLand() {
         <path key={w} d={G.coastD} fill="none" stroke="#7d98a8" strokeOpacity={[0.06, 0.09, 0.14][i]} strokeWidth={w} strokeLinejoin="round" />
       ))}
       <path d={G.coastD} fill="none" stroke="#7d98a8" strokeOpacity={0.35} strokeWidth={0.5} transform="translate(0.8 1.2)" {...NS} />
-      <path d={G.landD} fill="#ece3cf" />
+      <path d={G.landD} fill={LAND} />
     </g>
   );
 });
@@ -1122,9 +1129,9 @@ const Borders = memo(function Borders() {
   );
 });
 
-const Labels = memo(function Labels({ kq }) {
+const Labels = memo(function Labels({ zk }) {
   const G = geo();
-  const z = kq / 8;
+  const z = zk;
   return (
     <g pointerEvents="none" className="display">
       {G.seaLabels.map((s) => (
@@ -1163,12 +1170,13 @@ const Territories = memo(function Territories({ stateKey, visKey }) {
         const r = G.regions[id]; if (!r) return null;
         const st = states[id];
         const shown = vis.includes(st.f);
-        const fill = shown ? FACTIONS[st.f].color : st.f === 'other' ? FACTIONS.other.color : MUTED;
-        const ctx = id === 'persia' || id === 'afghanistan';
+        const ctxR = id === 'persia' || id === 'afghanistan';
+        const base = shown ? FACTIONS[st.f].color : st.f === 'other' ? FACTIONS.other.color : MUTED;
+        const fill = onLand(base, shown ? (ctxR ? 0.42 : 0.62) : 0.5);
         return (
           <g key={id}>
-            <path d={r.d} data-region={id} style={{ fill, fillOpacity: shown ? (ctx ? 0.42 : 0.62) : 0.5, transition: 'fill 1.3s ease, fill-opacity .9s ease', cursor: 'pointer' }}
-              stroke={fill} strokeOpacity={shown ? 0.6 : 0.3} strokeWidth={2.2} strokeLinejoin="round" {...NS} />
+            <path d={r.d} data-region={id} style={{ fill, stroke: fill, transition: 'fill 1.3s ease, stroke 1.3s ease', cursor: 'pointer' }}
+              strokeWidth={1.6} strokeLinejoin="round" {...NS} />
             {st.over && vis.includes(st.over) && (
               <path d={r.d} fill={`url(#hatch-${st.over})`} pointerEvents="none" className="atl-fade" />
             )}
@@ -1687,7 +1695,6 @@ export default function EICMap() {
   const viewBox = `${(cam.x - vbW / 2).toFixed(2)} ${(cam.y - vbH / 2).toFixed(2)} ${vbW.toFixed(2)} ${vbH.toFixed(2)}`;
   // k = screen pixels per map unit; used to keep markers and labels a constant on-screen size
   const k = Math.min(box.w / vbW, box.h / vbH);
-  const kq = Math.round(k * 8);
 
   const goPrev = () => {
     const i = info.phase === 'dwell' && info.f > 0.2 ? info.idx : info.idx - 1;
@@ -1817,9 +1824,9 @@ export default function EICMap() {
           <svg ref={svgRef} viewBox={viewBox} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 h-full w-full touch-none select-none"
             onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} role="img" aria-label={`Map of India in ${Math.floor(year)}`}>
             <defs>
-              {Object.entries(FACTIONS).map(([k, c]) => (
-                <pattern key={k} id={`hatch-${k}`} width="4.5" height="4.5" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
-                  <line x1="0" y1="0" x2="0" y2="4.5" stroke={c.ink} strokeWidth="1.15" strokeOpacity=".5" />
+              {Object.entries(FACTIONS).map(([fk, c]) => (
+                <pattern key={fk} id={`hatch-${fk}`} width="5.5" height="5.5" patternUnits="userSpaceOnUse" patternTransform={`rotate(40) scale(${(1 / k).toFixed(4)})`}>
+                  <line x1="0" y1="0" x2="0" y2="5.5" stroke={c.ink} strokeWidth="1.15" strokeOpacity=".5" />
                 </pattern>
               ))}
               {[['l', 0, 0, 1, 0], ['r', 1, 0, 0, 0], ['t', 0, 0, 0, 1], ['b', 0, 1, 0, 0]].map(([id, x1, y1, x2, y2]) => (
@@ -1833,7 +1840,7 @@ export default function EICMap() {
             <Territories stateKey={stateKey} visKey={visKey} />
             <Relief />
             <Borders />
-            <Labels kq={kq} />
+            <Labels zk={k} />
 
             {/* changed-hands highlight */}
             {changed.map((id) => {
