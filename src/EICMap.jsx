@@ -1869,7 +1869,8 @@ export default function EICMap() {
         {/* MAP */}
         <div ref={mapBoxRef} className="paper-bg relative min-w-0 flex-1 overflow-hidden" onPointerLeave={() => setHover(null)}>
           <div className="mottle pointer-events-none absolute inset-0" />
-          <div ref={stageRef} className="absolute inset-0 touch-none select-none" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp}>
+          <div ref={stageRef} className="absolute inset-0 touch-none select-none" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp}
+            onPointerLeave={() => { if (!S.current.drag) setHover(null); }}>
           {/* Static layer: land, territories, relief, borders and mist. Moved with a CSS transform so panning never repaints it. */}
           <svg className="absolute left-0 top-0" width={(G.W + 2 * PADV) * k0} height={(G.H + 2 * PADV) * k0} viewBox={`${-PADV} ${-PADV} ${G.W + 2 * PADV} ${G.H + 2 * PADV}`}
             style={{ transform: staticTf, transformOrigin: '0 0', willChange: moving ? 'transform' : 'auto' }} aria-hidden="true">
